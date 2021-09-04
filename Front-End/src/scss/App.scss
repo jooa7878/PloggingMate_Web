@@ -1,0 +1,13 @@
+$color--black : #000;
+$color--white : #fff;
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  height: 1000px;
+  color : $color--white;  
+  background-color: $color--black;
+}
