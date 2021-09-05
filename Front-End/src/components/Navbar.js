@@ -12,9 +12,9 @@ function Navbar() {
           <NavbarItems>
             <Logo href="/">PloggingMate</Logo>
             <Tab>
-              <TabItems>Challenge</TabItems>
+              <TabItems href="/postlist">Challenge</TabItems>
               <TabItems href="/signup">Sign Up</TabItems>
-              <TabItems>Login</TabItems>
+              <TabItems href="/login">Login</TabItems>
             </Tab>
           </NavbarItems>
         </NormalNav>
@@ -25,12 +25,15 @@ function Navbar() {
 
 
 const NormalNav = styled.nav`
+  z-index:1;
   position : fixed;
   top : 0;
   font-family : inherit;
   font-weight:700;
+  padding : 20px 0;
   max-width: 1200px;
-  width:100%;
+  width : 100%;
+  background-color:#fff;
   `
 
 const NavbarItems = styled.div`
@@ -54,7 +57,7 @@ const Tab = styled.div `
 `
 
 const TabItems = styled.a`
-  cursor :pointer;
+
   margin-right: 20px;
   position: relative;
   transition: .3s;
