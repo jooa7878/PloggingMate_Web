@@ -6,8 +6,9 @@ $color--white : #fff;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  text-align: center;
-  height: 1000px;
-  color : $color--white;  
-  background-color: $color--black;
+  position: relative;
+  text-align: center;  
+  color : $color--black;
+  width : 1200px;
+  background-color: $color--white;
 }
