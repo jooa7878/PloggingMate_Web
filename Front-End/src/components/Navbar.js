@@ -13,7 +13,7 @@ function Navbar() {
             <Logo href="/">PloggingMate</Logo>
             <Tab>
               <TabItems>Challenge</TabItems>
-              <TabItems>Sign Up</TabItems>
+              <TabItems href="/signup">Sign Up</TabItems>
               <TabItems>Login</TabItems>
             </Tab>
           </NavbarItems>
@@ -53,12 +53,12 @@ const Tab = styled.div `
   justify-content: flex-end;
 `
 
-const TabItems = styled.p`
+const TabItems = styled.a`
   cursor :pointer;
   margin-right: 20px;
   position: relative;
-  display: inline-block;
   transition: .3s;
+  text-decoration: none;
   &::after {
     position: absolute;
     bottom: -5px;
@@ -74,6 +74,10 @@ const TabItems = styled.p`
   }
   &:hover::after {
     width:100%
+  }
+
+  &:visited {
+    color : #000;
   }
 `
 
