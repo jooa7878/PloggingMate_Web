@@ -1,11 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-
-const Home = (props) => {
-  return <React.Fragment>Home</React.Fragment>;
-};
-
-=======
 import styled from 'styled-components'
 
 import Navbar  from "../components/Navbar";
@@ -33,5 +26,4 @@ const Container = styled.div `
   }
 `
 
->>>>>>> 085c180a7dfc9df0a71c8d3e3306df9b8ea73d5d
 export default Home;
