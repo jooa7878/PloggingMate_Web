@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from "react";
 import styled from "styled-components";
 
@@ -28,6 +29,8 @@ const Card = styled.div`
 
 export default LoginBox;
 =======
+=======
+>>>>>>> c4aca958713454e40652461d207f15e68a1f75d5
 import React from 'react';
 import styled from 'styled-components';
 
@@ -62,5 +65,9 @@ const Card = styled.div `
   }
 `
 
+<<<<<<< HEAD
 export default LoginBox
 >>>>>>> 86d75e60090f3668ec2b573fa75c53d201c838f0
+=======
+export default LoginBox
+>>>>>>> c4aca958713454e40652461d207f15e68a1f75d5

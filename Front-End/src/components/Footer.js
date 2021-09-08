@@ -1,10 +1,15 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React from "react";
 import styled from "styled-components";
 =======
 import React from 'react';
 import styled from 'styled-components';
 >>>>>>> 86d75e60090f3668ec2b573fa75c53d201c838f0
+=======
+import React from 'react';
+import styled from 'styled-components';
+>>>>>>> c4aca958713454e40652461d207f15e68a1f75d5
 
 function Footer() {
   return (
@@ -14,15 +19,20 @@ function Footer() {
       </CopyRight>
     </>
 <<<<<<< HEAD
+<<<<<<< HEAD
   );
 =======
   )
 >>>>>>> 86d75e60090f3668ec2b573fa75c53d201c838f0
+=======
+  )
+>>>>>>> c4aca958713454e40652461d207f15e68a1f75d5
 }
 
 const CopyRight = styled.div`
   position: absolute;
   display: flex;
+<<<<<<< HEAD
 <<<<<<< HEAD
   color: #333;
   bottom: 0;
@@ -38,6 +48,8 @@ const CopyRight = styled.div`
 
 export default Footer;
 =======
+=======
+>>>>>>> c4aca958713454e40652461d207f15e68a1f75d5
   color : #333;
   bottom : 0;
   height: 50px;
@@ -48,5 +60,9 @@ export default Footer;
   padding : 10px 0;
 `
 
+<<<<<<< HEAD
 export default Footer;
 >>>>>>> 86d75e60090f3668ec2b573fa75c53d201c838f0
+=======
+export default Footer;
+>>>>>>> c4aca958713454e40652461d207f15e68a1f75d5
