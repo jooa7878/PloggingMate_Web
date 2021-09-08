@@ -1,17 +1,27 @@
 import React from "react";
+import { Route, Link } from "react-router-dom";
 
 import styled from "styled-components";
+import "../scss/Navbar.scss";
 
 function Navbar() {
   return (
     <>
       <NormalNav>
         <NavbarItems>
-          <Logo href="/">PloggingMate</Logo>
+          <Link to="/" className="logo">
+            PloggingMate
+          </Link>
           <Tab>
-            <TabItems href="/postlist">Challenge</TabItems>
-            <TabItems href="/signup">Sign Up</TabItems>
-            <TabItems href="/login">Login</TabItems>
+            <Link to="/postlist" className="tab-item">
+              Challenge
+            </Link>
+            <Link to="/signup" className="tab-item">
+              Sign Up
+            </Link>
+            <Link to="/login" className="tab-item">
+              Login
+            </Link>
           </Tab>
         </NavbarItems>
       </NormalNav>
@@ -20,7 +30,7 @@ function Navbar() {
 }
 
 const NormalNav = styled.nav`
-  z-index: 1;
+  z-index: 10;
   position: fixed;
   top: 0;
   font-family: inherit;

@@ -4,6 +4,7 @@ $color--white: #fff;
 .App {
   display: flex;
   flex-wrap: wrap;
+  width: 1200px;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -12,4 +13,5 @@ $color--white: #fff;
   color: $color--black;
   background-color: $color--white;
   overflow: hidden;
+  position: relative;
 }
