@@ -1,0 +1,36 @@
+.logo {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #00bfff;
+  font-size: 1.5rem;
+  &:visited {
+    color: #00bfff;
+  }
+}
+
+.tab-item {
+  margin-right: 20px;
+  position: relative;
+  transition: 0.3s;
+  text-decoration: none;
+  &::after {
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: #00bfff;
+
+    transition: 0.3s;
+    --webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+  &:hover::after {
+    width: 100%;
+  }
+
+  &:visited {
+    color: #000;
+  }
+}
