@@ -1,10 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-function Jumbotron() {
+function LoginBox() {
+  const onClick = () => {
+    console.log("clicked");
+  };
+
   return (
     <>
-      <Card>Card</Card>
+      <Card onClick={onClick}>로그인 박스</Card>
     </>
   );
 }
@@ -12,17 +16,13 @@ function Jumbotron() {
 const Card = styled.div`
   border-radius: 10px;
   border: 1px solid #d3d3d3;
-  margin-top: 100px;
-  width: 800px;
+  margin-left: 40px;
+  width: 300px;
   height: 400px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    width: 500px;
-  }
 `;
 
-export default Jumbotron;
+export default LoginBox;
