@@ -1,5 +1,5 @@
-$color--black : #000;
-$color--white : #fff;
+$color--black: #000;
+$color--white: #fff;
 
 .App {
   display: flex;
@@ -8,10 +8,9 @@ $color--white : #fff;
   align-items: center;
   min-height: 100vh;
   position: relative;
-  text-align: center;  
-  color : $color--black;
+  text-align: center;
+  color: $color--black;
   width: 1200px;
-  height: 1000px;
   background-color: $color--white;
   overflow: hidden;
 }
