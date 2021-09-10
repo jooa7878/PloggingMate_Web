@@ -80,13 +80,13 @@ const Button = styled.button`
   border-radius: 15px;
   width: 120px;
   height: 35px;
-  border: 1px solid skyblue;
-  background-color: #00bfff;
+  border: 1px solid #3fc556;
+  background-color: #3fc556;
   font-weight: 1000;
   color: #fff;
   font-size: 1rem;
   &:hover {
-    background-color: #006e92;
+    background-color: #2c883b;
     color: #fff;
   }
 `;

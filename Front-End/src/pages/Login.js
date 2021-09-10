@@ -107,7 +107,7 @@ const Logo = styled.div`
 
 const LogoText = styled.h3`
   font-weight: 1000;
-  color: #00bfff;
+  color: #3fc556;
   font-size: 1.5rem;
   padding-left: 20px;
 `;
@@ -125,7 +125,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border: 3px solid #00bfff;
+    border: 3px solid #3fc556;
   }
 `;
 
@@ -140,8 +140,8 @@ const Button = styled.button`
   border-radius: 15px;
   width: 70%;
   height: 35px;
-  border: 1px solid skyblue;
-  background-color: #00bfff;
+  border: 1px solid #3fc556;
+  background-color: #3fc556;
   font-weight: 1000;
   color: #fff;
   cursor: pointer;

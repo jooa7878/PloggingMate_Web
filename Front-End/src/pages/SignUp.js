@@ -137,7 +137,7 @@ const Logo = styled.div`
 
 const LogoText = styled.h3`
   font-weight: 1000;
-  color: #00bfff;
+  color: #3fc556;
   font-size: 1.5rem;
   padding-left: 20px;
 `;
@@ -155,7 +155,7 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border: 3px solid #00bfff;
+    border: 3px solid #3fc556;
   }
 `;
 
@@ -171,14 +171,14 @@ const Button = styled.button`
   border-radius: 15px;
   width: 120px;
   height: 35px;
-  border: 1px solid skyblue;
-  background-color: #00bfff;
+  border: 1px solid #3fc556;
+  background-color: #3fc556;
   font-weight: 1000;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
   &:hover {
-    background-color: #006e92;
+    background-color: #2c883b;
     color: #fff;
   }
 `;
@@ -214,7 +214,7 @@ const PolicyContent = styled.span`
 `;
 
 const SignupTitle = styled.h1`
-  color: #00bfff;
+  color: #3fc556;
   font-size: 35px;
   margin-bottom: 40px;
 `;
