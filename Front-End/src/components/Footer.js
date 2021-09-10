@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 function Footer() {
   return (
@@ -8,20 +8,24 @@ function Footer() {
         {new Date().getFullYear()} &copy; Team PloggingMate. All Right Reserved.
       </CopyRight>
     </>
-  )
+  );
 }
 
 const CopyRight = styled.div`
+  z-index: 10;
   position: absolute;
   display: flex;
-  color : #333;
-  bottom : 0;
+  color: #333;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   height: 50px;
-  width : 100%;
   justify-content: center;
   align-items: center;
-  border-top : 1px solid #d3d3d3;
-  padding : 10px 0;
-`
+  border-top: 1px solid #d3d3d3;
+  padding: 10px 0;
+  background-color: white;
+`;
 
 export default Footer;

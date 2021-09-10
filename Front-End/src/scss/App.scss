@@ -1,17 +1,24 @@
-$color--black : #000;
-$color--white : #fff;
+$color--black: #000;
+$color--white: #fff;
 
 .App {
   display: flex;
   flex-wrap: wrap;
+  width: 1200px;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   position: relative;
-  text-align: center;  
-  color : $color--black;
-  width: 1200px;
-  height: 1000px;
+  text-align: center;
+  color: $color--black;
   background-color: $color--white;
   overflow: hidden;
+  position: relative;
+}
+
+.Link_Login {
+  text-decoration: none;
+  &:visited {
+    color: #838080;
+  }
 }

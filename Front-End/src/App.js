@@ -7,27 +7,25 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PostList from "./pages/PostList";
+import ReduxTest from "./pages/ReduxTest";
 
 import Navbar from "./components/Navbar";
-import Footer from "./components/Footer"
-
-
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    
-      <div className="App">
+    <div className="App">
+      <BrowserRouter>
         <Navbar></Navbar>
-        <BrowserRouter>
-          <Route path="/" exact component={Home} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/signup" exact component={SignUp} />
-          <Route path="/postlist" exact component={PostList} />
-        </BrowserRouter>
-        <Footer></Footer>
-      </div>
-    
+        <Route path="/" exact component={Home} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/signup" exact component={SignUp} />
+        <Route path="/postlist" exact component={PostList} />
+        <Route path="/redux" exact component={ReduxTest} />
+      </BrowserRouter>
+      <Footer></Footer>
+    </div>
   );
 }
 
-export default App
+export default App;

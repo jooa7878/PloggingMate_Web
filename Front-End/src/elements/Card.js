@@ -1,8 +1,8 @@
 // import React from 'react';
 // import styled from 'styled-components';
 
-// export const Card = props =>{ 
-  
+// export const Card = props =>{
+
 //   const {left, right, width, height} = props;
 //   console.log(props);
 
@@ -12,7 +12,7 @@
 //         console.log(CardEl.height)
 //       }
 //     </CardEl>
-    
+
 //   )
 // }
 
@@ -24,8 +24,8 @@
 //   left : ${props =>props.left};
 //   right : ${props =>props.right};
 //   cursor:pointer;
-//   position: absolute; 
-//   display: flex; 
+//   position: absolute;
+//   display: flex;
 //   justify-content: center;
 //   align-items: center;
 // `
