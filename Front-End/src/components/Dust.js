@@ -7,7 +7,6 @@ function Dust() {
     "AWww3bsN1Jf0BBZXWkVQG%2F%2FnC2xpn3sSDXgBJhsYdJIMVPHiScpp9jPP%2Bs8iwwZv0v9m6Rt3qW9DgK8SbHWMag%3D%3D";
   const API_URL = `
 https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=종로구&dataTerm=month&pageNo=1&numOfRows=100&returnType=json&serviceKey=AWww3bsN1Jf0BBZXWkVQG%2F%2FnC2xpn3sSDXgBJhsYdJIMVPHiScpp9jPP%2Bs8iwwZv0v9m6Rt3qW9DgK8SbHWMag%3D%3D`;
-  axios.defaults.baseURL = "http://openapi.airkorea.or.kr/";
   let [dust, setDust] = useState({});
   let [loading, setLoading] = useState(true);
 
@@ -18,9 +17,10 @@ https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B552584/ArpltnInforIn
   const getDust = async () => {
     // status별 error 코드 만들기
     try {
+      console.log("axios");
       const resp = await axios
         .get(
-          `https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=종로구&dataTerm=month&pageNo=1&numOfRows=100&returnType=json&serviceKey=${API_KEY}`
+          `/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=송파구&dataTerm=month&pageNo=1&numOfRows=10&_returnType=json&ServiceKey=${API_KEY}&ver=1.3`
         )
         .catch((err) => {
           console.error(err);
