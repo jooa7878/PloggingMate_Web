@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import PostList from "./pages/PostList";
+import ReduxTest from "./pages/ReduxTest";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/postlist" exact component={PostList} />
+        <Route path="/redux" exact component={ReduxTest} />
       </BrowserRouter>
       <Footer></Footer>
     </div>
