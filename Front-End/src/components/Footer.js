@@ -12,6 +12,7 @@ function Footer() {
 }
 
 const CopyRight = styled.div`
+  z-index: 10;
   position: absolute;
   display: flex;
   color: #333;
@@ -24,6 +25,7 @@ const CopyRight = styled.div`
   align-items: center;
   border-top: 1px solid #d3d3d3;
   padding: 10px 0;
+  background-color: white;
 `;
 
 export default Footer;

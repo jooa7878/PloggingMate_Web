@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import "../scss/Navbar.scss";
 
-
 function Navbar() {
   return (
     <>
+      <BackColor></BackColor>
       <NormalNav>
         <NavbarItems>
           <Link to="/" className="logo">
@@ -31,31 +31,38 @@ function Navbar() {
   );
 }
 
-const NormalNav = styled.nav`
+const BackColor = styled.div
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid #d3d3d3;
+  padding: 38px 0;
+;
+
+const NormalNav = styled.nav
   z-index: 10;
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
   font-family: inherit;
   font-weight: 700;
   padding: 20px 0;
   max-width: 1200px;
-  background-color: #fff;
-`;
+  width: 100%;
+  background-color: white;
+  border-bottom: 2px solid white;
+;
 
-const NavbarItems = styled.div`
+const NavbarItems = styled.div
+  margin-bottom: 6.5px;
   display: flex;
   padding: 0 20px;
   align-items: center;
   justify-content: space-between;
-`;
+;
 
-const Tab = styled.div`
+const Tab = styled.div
   display: flex;
   justify-content: flex-end;
-`;
-
+;
 
 export default Navbar;
