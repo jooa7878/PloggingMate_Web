@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 import "../scss/Navbar.scss";
+
 
 function Navbar() {
   return (
@@ -50,6 +50,7 @@ const NormalNav = styled.nav`
   width: 100%;
   background-color: white;
   border-bottom: 2px solid white;
+  background-color: #fff;
 `;
 
 const NavbarItems = styled.div`
