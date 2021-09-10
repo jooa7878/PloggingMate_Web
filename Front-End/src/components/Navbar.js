@@ -1,8 +1,10 @@
 import React from "react";
+
 import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import "../scss/Navbar.scss";
+
 
 function Navbar() {
   return (
@@ -54,5 +56,6 @@ const Tab = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
 
 export default Navbar;
