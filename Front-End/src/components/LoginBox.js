@@ -1,28 +1,20 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import "../scss/LoginBox.scss";
 
 function LoginBox() {
-  const onClick = () => {
-    console.log("clicked");
-  };
+  let [login, setLogin] = useState(false);
 
   return (
-    <>
-      <Card onClick={onClick}>로그인 박스</Card>
-    </>
+    <React.Fragment>
+      <div className="userbox-container">
+        {login ? (
+          <div className="userbox">user-box</div>
+        ) : (
+          <button className="btn">로그인 하기</button>
+        )}
+      </div>
+    </React.Fragment>
   );
 }
-
-const Card = styled.div`
-  border-radius: 10px;
-  border: 1px solid #d3d3d3;
-  margin-left: 40px;
-  width: 300px;
-  height: 400px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default LoginBox;

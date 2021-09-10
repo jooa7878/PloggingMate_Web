@@ -19,11 +19,10 @@ function Jumbotron() {
           slidesPerView={1}
           navigation
           pagination={{ clickable: true }}
-          onSwiper={(swiper) => console.log(swiper)}
-          onSlideChange={() => console.log("swiper change")}
           centeredSlides={true}
           loop={true}
           onInit={(swiper) => console.log(swiper)}
+          autoplay={{ delay: 3000, disableOnInteraction: false }}
         >
           <SwiperSlide key={1} className="swiper-slide">
             <Card>Card 1</Card>
@@ -48,8 +47,6 @@ const Container = styled.div`
   justify-content: center;
   height: 400px;
   width: 800px;
-  margin-top: 100px;
-
   @media screen and (max-width: 768px) {
     width: 500px;
   }

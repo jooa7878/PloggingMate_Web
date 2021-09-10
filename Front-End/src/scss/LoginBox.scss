@@ -1,0 +1,28 @@
+.userbox-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  position: relative;
+  width: 350px;
+  height: 350px;
+  .userbox {
+  }
+  .btn {
+    color: #00bfff;
+    position: absolute;
+    bottom: 30px;
+    border: 1px solid #00bfff;
+    border-radius: 5px;
+    padding: 1rem 2rem;
+    background-color: white;
+    transition: 0.2s;
+    font-weight: bold;
+    &:hover {
+      cursor: pointer;
+      background-color: #00bfff;
+      color: #eee;
+    }
+  }
+}
