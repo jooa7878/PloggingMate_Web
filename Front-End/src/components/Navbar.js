@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 import "../scss/Navbar.scss";
 
@@ -9,6 +8,7 @@ import "../scss/Navbar.scss";
 function Navbar() {
   return (
     <>
+      <BackColor></BackColor>
       <NormalNav>
         <NavbarItems>
           <Link to="/" className="logo">
@@ -31,6 +31,14 @@ function Navbar() {
   );
 }
 
+const BackColor = styled.div`
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 2px solid #d3d3d3;
+  padding: 38px 0;
+`;
+
 const NormalNav = styled.nav`
   z-index: 10;
   position: fixed;
@@ -40,10 +48,13 @@ const NormalNav = styled.nav`
   padding: 20px 0;
   max-width: 1200px;
   width: 100%;
+  background-color: white;
+  border-bottom: 2px solid white;
   background-color: #fff;
 `;
 
 const NavbarItems = styled.div`
+  margin-bottom: 6.5px;
   display: flex;
   padding: 0 20px;
   align-items: center;
@@ -54,6 +65,5 @@ const Tab = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-
 
 export default Navbar;
