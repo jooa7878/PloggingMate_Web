@@ -118,7 +118,6 @@ const Card = styled.div`
   margin-left: 40px;
   width: 50%;
   height: 480px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -177,6 +176,7 @@ const Button = styled.button`
   font-weight: 1000;
   color: #fff;
   font-size: 1rem;
+  cursor: pointer;
   &:hover {
     background-color: #006e92;
     color: #fff;
