@@ -12,14 +12,12 @@ function Footer() {
 }
 
 const CopyRight = styled.div`
-  z-index: 10;
   position: absolute;
   display: flex;
   color: #333;
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
   height: 50px;
   justify-content: center;
   align-items: center;
