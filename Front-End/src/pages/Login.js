@@ -83,17 +83,15 @@ const Form = styled.form`
 const Card = styled.div`
   border-radius: 10px;
   border: 2px solid #d3d3d3;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  margin-left: 40px;
-  width: 50%;
+  margin: 60 0 60 40px;
+  width: 600px;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     margin: 20px;
   }
 `;

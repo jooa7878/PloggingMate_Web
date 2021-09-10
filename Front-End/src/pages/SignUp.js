@@ -116,14 +116,14 @@ const Card = styled.div`
   margin-top: 80px;
   margin-bottom: 60px;
   margin-left: 40px;
-  width: 50%;
+  width: 600px;
   height: 480px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     margin: 20px;
   }
 `;
