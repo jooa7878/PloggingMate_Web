@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 import "../scss/Navbar.scss";
-
 
 function Navbar() {
   return (
@@ -31,15 +31,15 @@ function Navbar() {
   );
 }
 
-const BackColor = styled.div`
+const BackColor = styled.div
   position: fixed;
   top: 0;
   width: 100%;
   border-bottom: 2px solid #d3d3d3;
   padding: 38px 0;
-`;
+;
 
-const NormalNav = styled.nav`
+const NormalNav = styled.nav
   z-index: 10;
   position: fixed;
   top: 0;
@@ -50,20 +50,19 @@ const NormalNav = styled.nav`
   width: 100%;
   background-color: white;
   border-bottom: 2px solid white;
-  background-color: #fff;
-`;
+;
 
-const NavbarItems = styled.div`
+const NavbarItems = styled.div
   margin-bottom: 6.5px;
   display: flex;
   padding: 0 20px;
   align-items: center;
   justify-content: space-between;
-`;
+;
 
-const Tab = styled.div`
+const Tab = styled.div
   display: flex;
   justify-content: flex-end;
-`;
+;
 
 export default Navbar;
