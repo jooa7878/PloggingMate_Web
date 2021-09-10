@@ -12,11 +12,10 @@ $color--white: #fff;
   overflow: hidden;
   position: relative;
 
-
-.Link_Login {
-  text-decoration: none;
-  &:visited {
-    color: #838080;
+  .Link_Login {
+    text-decoration: none;
+    &:visited {
+      color: #838080;
+    }
   }
-
 }
