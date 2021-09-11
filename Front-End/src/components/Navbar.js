@@ -54,10 +54,11 @@ const NormalNav = styled.nav`
 `;
 
 const NavbarItems = styled.div`
+  margin-bottom: 6.5px;
   display: flex;
   padding: 0 20px;
   align-items: center;
-  justify-content: space-between; ;
+  justify-content: space-between;
 `;
 
 const Tab = styled.div`
