@@ -86,14 +86,14 @@ const Card = styled.div`
   margin-top: 60px;
   margin-bottom: 60px;
   margin-left: 40px;
-  width: 50%;
+  width: 600px;
   height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  @media screen and (max-width: 1000px) {
+  @media screen and (max-width: 768px) {
     margin: 20px;
   }
 `;
@@ -147,7 +147,7 @@ const Button = styled.button`
   cursor: pointer;
   font-size: 1rem;
   &:hover {
-    background-color: #006e92;
+    background-color: #2c883b;
     color: #fff;
   }
 `;

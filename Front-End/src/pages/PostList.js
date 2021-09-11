@@ -2,47 +2,68 @@ import React from "react";
 import Post from "../components/Post";
 import styled from "styled-components";
 
-const dummyData = [
-  { user_name: "온승찬" },
-  { user_name: "안상혁" },
-  { user_name: "홍길동" },
-];
-
 const PostList = (props) => {
   return (
     <Body>
-      {dummyData.map((item) => (
-        <Card>
-          <Post user_name={item.user_name}></Post>
-        </Card>
-      ))}
+      <Progress>현재 모집중인 플로깅입니다.</Progress>
+      <div>
+        <span>정렬 기준</span>
+        <span>새글 작성</span>
+      </div>
+      <Posts>
+        <Post post_id={1}></Post>
+        <Post post_id={2}></Post>
+        <Post post_id={3}></Post>
+        <Post post_id={4}></Post>
+        <Post post_id={5}></Post>
+        <Post post_id={6}></Post>
+        <Post post_id={7}></Post>
+        <Post post_id={8}></Post>
+        <Post post_id={1}></Post>
+        <Post post_id={2}></Post>
+        <Post post_id={3}></Post>
+        <Post post_id={4}></Post>
+      </Posts>
+      <button>More</button>
+      <hr></hr>
+      <Progress>이미 진행된 플로깅입니다.</Progress>
+      <Posts>
+        <Post post_id={9} is_progress={false}></Post>
+        <Post post_id={10} is_progress={false}></Post>
+        <Post post_id={11} is_progress={false}></Post>
+        <Post post_id={12} is_progress={false}></Post>
+        <Post post_id={9} is_progress={false}></Post>
+        <Post post_id={10} is_progress={false}></Post>
+        <Post post_id={11} is_progress={false}></Post>
+        <Post post_id={12} is_progress={false}></Post>
+      </Posts>
     </Body>
   );
 };
 
 export default PostList;
 
-const Body = styled.body`
+const Body = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 70px;
+  margin-top: 100px;
   margin-bottom: 60px;
+  max-width: 1200px;
 `;
 
-const Card = styled.div`
-  border-radius: 10px;
-  border: 1px solid #d3d3d3;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  width: 50%;
-  height: 400px;
+const Posts = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+`;
 
-  @media screen and (max-width: 1000px) {
-    margin: 20px;
-  }
+const Progress = styled.span`
+  text-align: center;
+
+  font-size: 30px;
+  font-weight: 1000;
+  color: #3fc556;
 `;

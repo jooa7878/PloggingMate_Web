@@ -8,11 +8,10 @@ import "../scss/Navbar.scss";
 function Navbar() {
   return (
     <>
-      <BackColor></BackColor>
       <NormalNav>
         <NavbarItems>
           <Link to="/" className="logo">
-            PloggingMate
+            <img src="../img/logo.png" alt="logo" /> PloggingMate
           </Link>
           <Tab>
             <Link to="/postlist" className="tab-item">
@@ -31,14 +30,6 @@ function Navbar() {
   );
 }
 
-const BackColor = styled.div`
-  position: fixed;
-  top: 0;
-  width: 100%;
-  border-bottom: 2px solid #d3d3d3;
-  padding: 38px 0;
-`;
-
 const NormalNav = styled.nav`
   z-index: 10;
   position: fixed;
@@ -50,14 +41,24 @@ const NormalNav = styled.nav`
   width: 100%;
   background-color: white;
   border-bottom: 2px solid white;
+  &::after {
+    content: "";
+    position: fixed;
+    top: 65px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    height: 1px;
+    width: 100%;
+    background-color: #d3d3d3;
+  }
 `;
 
 const NavbarItems = styled.div`
-  margin-bottom: 6.5px;
   display: flex;
   padding: 0 20px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; ;
 `;
 
 const Tab = styled.div`

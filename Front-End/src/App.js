@@ -11,6 +11,7 @@ import ReduxTest from "./pages/ReduxTest";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import PostDetail from "./pages/PostDetail";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/postlist" exact component={PostList} />
+        <Route path="/postdetail/:id" component={PostDetail} />
         <Route path="/redux" exact component={ReduxTest} />
       </BrowserRouter>
       <Footer></Footer>

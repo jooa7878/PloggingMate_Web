@@ -4,7 +4,6 @@ $color--white: #fff;
 .App {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -21,4 +20,22 @@ $color--white: #fff;
   &:visited {
     color: #838080;
   }
+}
+
+.Link_Post {
+  box-sizing: border-box;
+  width: 240px;
+  height: 160px;
+  margin: 20px 15px 5px 15px;
+  padding: 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px -2px black;
+  background-size: cover;
+  font-weight: 1000;
+  text-decoration: none;
 }
