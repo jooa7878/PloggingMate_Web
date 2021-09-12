@@ -48,6 +48,7 @@ public class AccountAuthDto {
 
         this.accountId = account.getAccountId();
         this.email = account.getEmail();
+        this.nickname = account.getNickname();
         this.address = account.getAddress();
     }
 
