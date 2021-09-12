@@ -6,6 +6,7 @@ import KBChallenge.BackEnd.PloggingMate.account.dto.SignInRes;
 import KBChallenge.BackEnd.PloggingMate.account.entity.Account;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomException;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomExceptionStatus;
+import KBChallenge.BackEnd.PloggingMate.configure.security.authentication.CustomUserDetails;
 import KBChallenge.BackEnd.PloggingMate.configure.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -51,6 +52,11 @@ public class AccountService {
                 .build();
 
         return res;
+    }
+
+    public AccountAuthDto getAuthAccount(CustomUserDetails customUserDetails) {
+        Account account = customUserDetails.getAccount();
+        return new AccountAuthDto(account);
     }
 
 }

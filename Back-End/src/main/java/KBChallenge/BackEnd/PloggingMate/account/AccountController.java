@@ -6,13 +6,12 @@ import KBChallenge.BackEnd.PloggingMate.account.dto.SignInReq;
 import KBChallenge.BackEnd.PloggingMate.account.dto.SignInRes;
 import KBChallenge.BackEnd.PloggingMate.configure.response.DataResponse;
 import KBChallenge.BackEnd.PloggingMate.configure.response.ResponseService;
+import KBChallenge.BackEnd.PloggingMate.configure.security.authentication.CustomUserDetails;
 import KBChallenge.BackEnd.PloggingMate.util.ValidationExceptionProvider;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -34,6 +33,11 @@ public class AccountController {
     public DataResponse<SignInRes> signIn(@RequestBody @Valid SignInReq req, Errors errors) {
         if (errors.hasErrors()) ValidationExceptionProvider.throwValidError(errors);
         return responseService.getDataResponse(accountService.signIn(req));
+    }
+
+    @GetMapping(value = "/accounts/auth")
+    public DataResponse<AccountAuthDto> getAuthAccount(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        return responseService.getDataResponse(accountService.getAuthAccount(customUserDetails));
     }
 
 }
