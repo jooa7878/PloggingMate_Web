@@ -6,24 +6,37 @@ import styled from "styled-components";
 import "../scss/Navbar.scss";
 
 function Navbar() {
+  const onClick = (e) => {
+    document.querySelectorAll(".tab-item").forEach((el) => {
+      if (el.classList.contains("active")) {
+        el.classList.remove("active");
+      }
+    });
+
+    if (e.target.className !== "logo") e.target.classList.add("active");
+  };
+
   return (
     <>
       <NormalNav>
         <NavbarItems>
-          <Link to="/" className="logo">
+          <Link to="/" className="logo" onClick={onClick}>
             <span className="home">
               <img src={require("../img/logo.png").default} alt="logo" />
               PloggingMate
             </span>
           </Link>
           <Tab>
-            <Link to="/postlist" className="tab-item">
+            <Link to="/postlist" className="tab-item" onClick={onClick}>
               Challenge
             </Link>
-            <Link to="/signup" className="tab-item">
+            <Link to="/Park" className="tab-item" onClick={onClick}>
+              Park
+            </Link>
+            <Link to="/signup" className="tab-item" onClick={onClick}>
               Sign Up
             </Link>
-            <Link to="/login" className="tab-item">
+            <Link to="/login" className="tab-item" onClick={onClick}>
               Login
             </Link>
           </Tab>
