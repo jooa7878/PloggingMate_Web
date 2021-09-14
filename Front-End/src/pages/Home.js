@@ -5,6 +5,9 @@ import Navbar from "../components/Navbar";
 import Jumbotron from "../components/Jumbotron";
 import LoginBox from "../components/LoginBox";
 import Dust from "../components/Dust";
+import FindPark from "../components/FindPark";
+
+import "../scss/Home.scss";
 
 import "../scss/Home.scss";
 
@@ -16,6 +19,7 @@ const Home = (props) => {
         <Dust></Dust>
         <LoginBox></LoginBox>
       </Section>
+      <FindPark></FindPark>
     </Container>
   );
 };
