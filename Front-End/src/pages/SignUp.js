@@ -99,6 +99,7 @@ const SignUp = (props) => {
               visible={modalVisible}
               maskClosable={true}
               onClose={closeModal}
+              button
             >
               <PrivacyPolicy></PrivacyPolicy>
             </Modal>
