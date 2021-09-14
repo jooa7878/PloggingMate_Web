@@ -1,41 +1,81 @@
 import React from "react";
 import Post from "../components/Post";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+const 총게시물 = 26;
+const post = [
+  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22,
+  23, 24, 25, 26,
+];
 
 const PostList = (props) => {
+  const [showNum, setShowNum] = React.useState(12);
+  const [showNum_complete, setShowNum_complete] = React.useState(8);
+
+  React.useEffect(() => {
+    // 포스트 가져오기
+    //
+  }, [showNum]);
+
+  const clickMore = () => {
+    if (showNum + 4 < 총게시물) setShowNum(showNum + 4);
+    else {
+      setShowNum(총게시물);
+    }
+    if (showNum === 총게시물) window.alert("더이상 게시물이 없습니다.");
+  };
+
+  const clickMore_complete = () => {
+    if (showNum_complete + 4 < 총게시물)
+      setShowNum_complete(showNum_complete + 4);
+    else {
+      setShowNum_complete(총게시물);
+    }
+    if (showNum_complete === 총게시물)
+      window.alert("더이상 게시물이 없습니다.");
+  };
+
+  const rendering = () => {
+    const result = [];
+    for (let i = 0; i < showNum; i++) {
+      result.push(<Post post_id={i} />);
+    }
+    return result;
+  };
+
+  const rendering_complete = () => {
+    const result = [];
+    for (let i = 0; i < showNum_complete; i++) {
+      result.push(<Post post_id={i} is_progress={false} />);
+    }
+    return result;
+  };
+
   return (
     <Body>
-      <Progress>현재 모집중인 플로깅입니다.</Progress>
-      <div>
-        <span>정렬 기준</span>
-        <span>새글 작성</span>
-      </div>
+      <Title>플로깅 메이트 찾기</Title>
+      <SubTitle>
+        회원님의 주변 공원에서 진행중인 플로깅입니다. 플로깅에 함께
+        참여해보세요!
+      </SubTitle>
       <Posts>
-        <Post post_id={1}></Post>
-        <Post post_id={2}></Post>
-        <Post post_id={3}></Post>
-        <Post post_id={4}></Post>
-        <Post post_id={5}></Post>
-        <Post post_id={6}></Post>
-        <Post post_id={7}></Post>
-        <Post post_id={8}></Post>
-        <Post post_id={1}></Post>
-        <Post post_id={2}></Post>
-        <Post post_id={3}></Post>
-        <Post post_id={4}></Post>
+        <PostsElm>
+          <Link to="/signup" className="Link_PostWrtie">
+            새로 모집하기
+          </Link>
+        </PostsElm>
+        {rendering()}
+        <Button onClick={clickMore}>더보기</Button>
       </Posts>
-      <button>More</button>
       <hr></hr>
-      <Progress>이미 진행된 플로깅입니다.</Progress>
+      <Title complete>완료된 플로깅</Title>
+      <SubTitle>
+        최근 진행되었던 플로깅입니다. 진행되었던 플로깅을 확인해보세요!
+      </SubTitle>
       <Posts>
-        <Post post_id={9} is_progress={false}></Post>
-        <Post post_id={10} is_progress={false}></Post>
-        <Post post_id={11} is_progress={false}></Post>
-        <Post post_id={12} is_progress={false}></Post>
-        <Post post_id={9} is_progress={false}></Post>
-        <Post post_id={10} is_progress={false}></Post>
-        <Post post_id={11} is_progress={false}></Post>
-        <Post post_id={12} is_progress={false}></Post>
+        {rendering_complete()}
+        <Button onClick={clickMore_complete}>더보기</Button>
       </Posts>
     </Body>
   );
@@ -58,12 +98,80 @@ const Posts = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  border: 2px solid #d3d3d3;
+  border-radius: 35px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+  @media screen and (max-width: 900px) {
+    width: 768px;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 500px;
+  }
 `;
 
-const Progress = styled.span`
+const Title = styled.span`
   text-align: center;
-
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 40px;
   font-weight: 1000;
-  color: #3fc556;
+  color: ${(props) => (props.complete ? "#da590f" : "#3fc556")};
+`;
+
+const Button = styled.button`
+  width: 100px;
+  height: 30px;
+  margin-top: 30px;
+  background-color: #aaa69d;
+  border: none;
+  border-radius: 20px;
+  font-weight: 800;
+  font-size: 1rem;
+  color: white;
+  margin-left: 500px;
+  margin-right: 500px;
+  padding-bottom: 5px;
+  box-shadow: 0 4px 5px -1px #464441;
+  cursor: pointer;
+  &:hover {
+    background-color: #84817a;
+    color: white;
+    padding-bottom: 0px;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  @media screen and (max-width: 768px) {
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+`;
+
+const PostsElm = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+`;
+
+const SubTitle = styled.span`
+  color: #7a7977;
+  margin: 10px;
+  width: 600px;
+  font-weight: 600;
+  font-size: 14px;
+`;
+
+const Sort = styled.span`
+  font-weight: 1000;
+  font-size: 18px;
+  text-decoration: none;
+  margin-left: 60px;
+  color: #9e6727;
 `;

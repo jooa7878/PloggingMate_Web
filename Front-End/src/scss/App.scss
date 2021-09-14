@@ -35,8 +35,21 @@ $color--white: #fff;
   justify-content: space-between;
   align-items: center;
   cursor: pointer;
-  box-shadow: 0 4px 8px -2px black;
+  box-shadow: 0 4px 8px 0px black;
   background-size: cover;
   font-weight: 1000;
   text-decoration: none;
+  &:hover {
+    border-bottom: 3px solid #00b894;
+  }
+}
+.Link_PostWrtie {
+  font-weight: 1000;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 60px;
+  color: #9e6727;
+  &:visited {
+    color: #9e6727;
+  }
 }
