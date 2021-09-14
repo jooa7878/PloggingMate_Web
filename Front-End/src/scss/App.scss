@@ -4,16 +4,21 @@ $color--white: #fff;
 .App {
   display: flex;
   flex-wrap: wrap;
-  width: 1200px;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  align-items: center;
   position: relative;
   text-align: center;
   color: $color--black;
   background-color: $color--white;
   overflow: hidden;
   position: relative;
+  .Link_Login {
+    text-decoration: none;
+    &:visited {
+      color: #838080;
+    }
+  }
 }
 
 .Link_Login {

@@ -5,7 +5,8 @@ function Footer() {
   return (
     <>
       <CopyRight>
-        {new Date().getFullYear()} &copy; Team PloggingMate. All Right Reserved.
+        {new Date().getFullYear()} &copy; Team PloggingMate. All Rights
+        Reserved.
       </CopyRight>
     </>
   );
@@ -19,7 +20,6 @@ const CopyRight = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  margin: 0 auto;
   height: 50px;
   justify-content: center;
   align-items: center;

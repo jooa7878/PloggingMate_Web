@@ -1,28 +1,43 @@
-import React from "react";
-import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import "../scss/LoginBox.scss";
 
 function LoginBox() {
-  const onClick = () => {
-    console.log("clicked");
-  };
+  let [login, setLogin] = useState(true);
 
   return (
-    <>
-      <Card onClick={onClick}>로그인 박스</Card>
-    </>
+    <React.Fragment>
+      <div className="userbox-container">
+        {login ? (
+          <div className="userbox">
+            <p>
+              <strong>userName님</strong> <br />
+              안녕하세요!
+            </p>
+            <div className="btn-container">
+              <Link to="/" className="link btn to-mypage">
+                마이 페이지
+              </Link>
+              <Link to="/postlist" className="link btn to-challenge">
+                챌린지 보러 가기
+              </Link>
+            </div>
+          </div>
+        ) : (
+          <div className="loginbox">
+            <span>
+              <strong>로그인</strong>하여 <br />
+              주위에서 진행되는 <br />
+              플로깅에 참석해보세요!
+            </span>
+            <Link to="/login" className="link btn">
+              로그인 하러가기
+            </Link>
+          </div>
+        )}
+      </div>
+    </React.Fragment>
   );
 }
-
-const Card = styled.div`
-  border-radius: 10px;
-  border: 1px solid #d3d3d3;
-  margin-left: 40px;
-  width: 300px;
-  height: 400px;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 export default LoginBox;
