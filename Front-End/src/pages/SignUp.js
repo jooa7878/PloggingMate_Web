@@ -12,9 +12,17 @@ const SignUp = (props) => {
     setModalVisible(false);
   };
 
+  const handleOnchane = (e) => {
+    e.target.style.backgroundColor = "#e8f7ea";
+    if (e.target.value === "") e.target.style.backgroundColor = "white";
+  };
+
   return (
     <Card>
-      <SignupTitle>회원 가입</SignupTitle>
+      <Logo>
+        <Img src={require("../img/logo.png").default} alt="logo" />
+        <LogoText> 회원가입</LogoText>
+      </Logo>
       <Form
         onSubmit={(event) => {
           event.preventDefault();
@@ -35,25 +43,25 @@ const SignUp = (props) => {
           required
           type="email"
           placeholder="아이디를 입력해주세요."
-          name="id"
           onFocus={(e) => {
             e.target.placeholder = "";
           }}
           onBlur={(e) => {
             e.target.placeholder = "아이디를 입력해주세요.";
           }}
+          onChange={handleOnchane}
         />
         <Input
           required
           type="text"
           placeholder="닉네임을 입력해주세요."
-          name="nickname"
           onFocus={(e) => {
             e.target.placeholder = "";
           }}
           onBlur={(e) => {
             e.target.placeholder = "사용하실 닉네임을 입력해주세요.";
           }}
+          onChange={handleOnchane}
         />
         <Input
           required
@@ -66,6 +74,7 @@ const SignUp = (props) => {
           onBlur={(e) => {
             e.target.placeholder = "비밀번호를 입력해주세요.";
           }}
+          onChange={handleOnchane}
         />
         <Input
           required
@@ -78,6 +87,7 @@ const SignUp = (props) => {
           onBlur={(e) => {
             e.target.placeholder = "비밀번호를 다시 입력해주세요.";
           }}
+          onChange={handleOnchane}
         />
         <div>
           <input type="checkbox" value="banana" />
@@ -132,14 +142,13 @@ const Logo = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-bottom: 5px;
 `;
 
 const LogoText = styled.h3`
   font-weight: 1000;
   color: #3fc556;
-  font-size: 1.5rem;
-  padding-left: 20px;
+  font-size: 2rem;
+  padding-right: 20px;
 `;
 
 const Input = styled.input`
@@ -155,52 +164,57 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border: 3px solid #3fc556;
+    border: 3px solid #89db96;
   }
 `;
 
 const Img = styled.img`
+  margin-top: 5px;
   padding: 0px;
   width: 50px;
-  height: 70px;
+  height: 80px;
   object-fit: cover;
 `;
 
 const Button = styled.button`
   margin-top: 20px;
   border-radius: 15px;
-  width: 120px;
+  width: 60%;
   height: 35px;
-  border: 1px solid #3fc556;
-  background-color: #3fc556;
+  border: 1px solid #9e6727;
+  background-color: #9e6727;
   font-weight: 1000;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
+  padding-bottom: 7px;
+  box-shadow: 0 3px 5px -1px #464441;
   &:hover {
-    background-color: #2c883b;
-    color: #fff;
+    background-color: #6b481f;
+    color: white;
+    padding-bottom: 0px;
+    border-bottom: 4px solid #3b2811;
   }
 `;
 
 const Notice = styled.span`
-  color: red;
-  font-size: 0.7rem;
+  color: #df3e3e;
+  font-size: 0.8rem;
   margin-left: 5px;
   margin-right: 5px;
-  font-weight: 550;
+  font-weight: 600;
 `;
 
 const Policy = styled.span`
-  color: #424242;
-  font-size: 0.8rem;
+  color: #6d6d6d;
+  font-size: 0.9rem;
   margin-left: 5px;
-  font-weight: 550;
+  font-weight: 600;
 `;
 
 const PolicyContent = styled.span`
   color: #838080;
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   margin-left: 10px;
   padding: 1px;
   font-weight: 600;

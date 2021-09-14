@@ -65,9 +65,9 @@ const Progress = styled.div`
   padding: 5px;
   border-radius: 15px;
   font-size: 12px;
-  margin-top: 10px;
-  margin-right: 10px;
-  margin-left: 60px;
+  margin-top: 11px;
+  margin-right: 11px;
+  margin-left: 58px;
 `;
 const Expired = styled.div`
   color: #fff0f0;
@@ -75,8 +75,8 @@ const Expired = styled.div`
   padding: 5px;
   border-radius: 15px;
   font-size: 12px;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-top: 11px;
+  margin-right: 11px;
   align-self: flex-end;
 `;
 const Date = styled.div`
