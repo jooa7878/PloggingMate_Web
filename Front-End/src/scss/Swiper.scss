@@ -16,6 +16,10 @@ $color-main: #3fc556;
       justify-content: center;
       align-items: center;
       width: 800px;
+      object-fit: cover;
+      img {
+        width: 500px;
+      }
     }
   }
 

@@ -1,10 +1,32 @@
+$color-main: #3fc556;
+
 .logo {
   margin-left: 20px;
   text-decoration: none;
-  color: #3fc556;
+  color: $color-main;
   font-size: 1.5rem;
   &:visited {
-    color: #3fc556;
+    color: $color-main;
+  }
+  .home {
+    display: inline-block;
+    align-items: center;
+    display: flex;
+    img {
+      width: 60px;
+      height: 50px;
+      margin-right: -10px;
+    }
+  }
+  .home {
+    display: inline-block;
+    align-items: center;
+    display: flex;
+    img {
+      width: 60px;
+      height: 50px;
+      margin-right: -10px;
+    }
   }
 }
 
@@ -20,8 +42,7 @@
     content: "";
     width: 0;
     height: 2px;
-    background-color: #3fc556;
-
+    background-color: $color-main;
     transition: 0.3s;
     --webkit-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -32,5 +53,9 @@
 
   &:visited {
     color: #000;
+  }
+
+  &.active {
+    color: $color-main;
   }
 }

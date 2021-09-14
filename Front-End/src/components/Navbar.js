@@ -5,21 +5,37 @@ import styled from "styled-components";
 import "../scss/Navbar.scss";
 
 function Navbar() {
+  const onClick = (e) => {
+    document.querySelectorAll(".tab-item").forEach((el) => {
+      if (el.classList.contains("active")) {
+        el.classList.remove("active");
+      }
+    });
+
+    if (e.target.className !== "logo") e.target.classList.add("active");
+  };
+
   return (
     <>
       <NormalNav>
         <NavbarItems>
-          <Link to="/" className="logo">
-            <img src="../img/logo.png" alt="logo" /> PloggingMate
+          <Link to="/" className="logo" onClick={onClick}>
+            <span className="home">
+              <img src={require("../img/logo.png").default} alt="logo" />
+              PloggingMate
+            </span>
           </Link>
           <Tab>
-            <Link to="/postlist" className="tab-item">
+            <Link to="/postlist" className="tab-item" onClick={onClick}>
               Challenge
             </Link>
-            <Link to="/signup" className="tab-item">
+            <Link to="/Park" className="tab-item" onClick={onClick}>
+              Park
+            </Link>
+            <Link to="/signup" className="tab-item" onClick={onClick}>
               Sign Up
             </Link>
-            <Link to="/login" className="tab-item">
+            <Link to="/login" className="tab-item" onClick={onClick}>
               Login
             </Link>
           </Tab>
@@ -43,7 +59,7 @@ const NormalNav = styled.nav`
   &::after {
     content: "";
     position: fixed;
-    top: 65px;
+    top: 80px;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -58,7 +74,7 @@ const NavbarItems = styled.div`
   display: flex;
   padding: 0 20px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; ;
 `;
 
 const Tab = styled.div`
