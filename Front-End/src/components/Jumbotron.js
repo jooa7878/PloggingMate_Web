@@ -1,15 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import "../scss/Swiper.scss";
 
+import { data } from "../elements/SliderData";
+
+import "../scss/Swiper.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
-
 import "swiper/swiper-bundle.css";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 function Jumbotron() {
+  console.log(data);
+
   return (
     <React.Fragment>
       <Container>
@@ -18,24 +21,18 @@ function Jumbotron() {
           spaceBetween={0}
           slidesPerView={1}
           navigation
-          pagination={{ clickable: true }}
           centeredSlides={true}
           loop={true}
           onInit={(swiper) => console.log(swiper)}
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
         >
-          <SwiperSlide key={1} className="swiper-slide">
-            <Card>Card 1</Card>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card>Card 2</Card>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card>Card 3</Card>
-          </SwiperSlide>
-          <SwiperSlide>
-            <Card>Card 4</Card>
-          </SwiperSlide>
+          {data.map((item, index) => {
+            return (
+              <SwiperSlide>
+                <Card>{index + 1}번 슬라이드</Card>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </Container>
     </React.Fragment>

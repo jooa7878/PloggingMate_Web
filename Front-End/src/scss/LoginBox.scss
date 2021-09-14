@@ -1,28 +1,79 @@
-.userbox-container {
+@mixin aligncenter() {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+$color-main: #3fc556;
+
+.userbox-container {
+  @include aligncenter();
   border: 1px solid #d3d3d3;
   border-radius: 10px;
   position: relative;
   width: 350px;
   height: 350px;
-  .userbox {
+  .link {
+    text-decoration: none;
+    color: #000;
+    .link:visited {
+      color: #000;
+    }
   }
-  .btn {
-    color: #3fc556;
-    position: absolute;
-    bottom: 30px;
-    border: 1px solid #3fc556;
-    border-radius: 5px;
-    padding: 1rem 2rem;
-    background-color: white;
-    transition: 0.2s;
-    font-weight: bold;
-    &:hover {
-      cursor: pointer;
-      background-color: #3fc556;
-      color: #eee;
+  .userbox {
+    p {
+      font-size: 2rem;
+      line-height: 2;
+    }
+    @include aligncenter();
+    .btn-container {
+      @include aligncenter();
+
+      position: absolute;
+      bottom: 30px;
+      .btn {
+        @include aligncenter();
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 10px;
+        margin: 0 10px;
+        transition: 0.2s;
+        &.to-mypage {
+          border: 1px solid #d3d3d3;
+          &:hover {
+            background-color: #d3d3d3;
+          }
+        }
+        &.to-challenge {
+          background-color: $color-main;
+          color: #f0f0f0;
+          &:hover {
+            background-color: #24a339;
+          }
+        }
+      }
+    }
+  }
+
+  .loginbox {
+    @include aligncenter();
+    span {
+      font-size: 2rem;
+    }
+    .btn {
+      @include aligncenter();
+      padding: 1rem 1.5rem;
+      border: 1px solid $color-main;
+      border-radius: 10px;
+      transition: 0.2s;
+      color: $color-main;
+      position: absolute;
+      bottom: 30px;
+
+      &:hover {
+        background-color: $color-main;
+        color: #fff;
+      }
     }
   }
 }
