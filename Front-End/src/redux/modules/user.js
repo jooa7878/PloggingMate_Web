@@ -1,4 +1,5 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
   user: null,
@@ -18,15 +19,9 @@ const setUser = createAction(SET_USER);
 
 // thunk middleware- 함수형 액션
 const login = (id, pwd) => {
-  return function (dispatch, getState) {
-    console.log("login");
-    console.log(id, pwd);
-
-    dispatch(loginCheck());
-
-    dispatch(setUser());
-
-    console.log(getState());
+  return async function (dispatch, getState) {
+    const data = await axios.post("/sign-in", { username: id, password: pwd });
+    const { accessToken } = data.jwt;
   };
 };
 

@@ -5,8 +5,8 @@ $color--white: #fff;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   min-height: 100vh;
+  align-items: center;
   position: relative;
   text-align: center;
   color: $color--black;
@@ -18,5 +18,43 @@ $color--white: #fff;
     &:visited {
       color: #838080;
     }
+  }
+}
+
+.Link_Login {
+  text-decoration: none;
+  &:visited {
+    color: #838080;
+  }
+}
+
+.Link_Post {
+  box-sizing: border-box;
+  width: 240px;
+  height: 160px;
+  margin: 20px 15px 5px 15px;
+  padding: 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px 0px black;
+  background-size: cover;
+  font-weight: 1000;
+  text-decoration: none;
+  &:hover {
+    border-bottom: 3px solid #00b894;
+  }
+}
+.Link_PostWrtie {
+  font-weight: 1000;
+  font-size: 18px;
+  text-decoration: none;
+  margin-right: 60px;
+  color: #9e6727;
+  &:visited {
+    color: #9e6727;
   }
 }

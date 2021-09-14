@@ -14,12 +14,17 @@ const Login = (props) => {
     dispatch(userActions.login(id, pwd));
   };
 
+  const handleOnchane = (e) => {
+    e.target.style.backgroundColor = "#e3f0e4";
+    if (e.target.value === "") e.target.style.backgroundColor = "white";
+  };
+
   return (
     <React.Fragment>
       <Card>
         <Logo>
-          <LogoText> PloggingMate</LogoText>
           <Img src={require("../img/logo.png").default} alt="logo" />
+          <LogoText> 로그인</LogoText>
         </Logo>
         <Form
           onSubmit={(e) => {
@@ -31,9 +36,7 @@ const Login = (props) => {
             required
             type="email"
             placeholder="아이디를 입력해주세요."
-            onChange={(e) => {
-              setId(e.target.value);
-            }}
+            onChange={handleOnchane}
             onFocus={(e) => {
               e.target.placeholder = "";
             }}
@@ -45,9 +48,7 @@ const Login = (props) => {
             required
             type="password"
             placeholder="비밀번호를 입력해주세요."
-            onChange={(e) => {
-              setPwd(e.target.value);
-            }}
+            onChange={handleOnchane}
             onFocus={(e) => {
               e.target.placeholder = "";
             }}
@@ -59,7 +60,7 @@ const Login = (props) => {
           <Button>로그인</Button>
           <ETC>
             <Link to="/signup" className="Link_Login">
-              <Forgot onClick>아이디/비밀번호 찾기</Forgot>
+              <Forgot>아이디/비밀번호 찾기</Forgot>
             </Link>
             <Link to="/signup" className="Link_Login">
               <Signup>회원가입</Signup>
@@ -83,7 +84,9 @@ const Form = styled.form`
 const Card = styled.div`
   border-radius: 10px;
   border: 2px solid #d3d3d3;
-  margin: 60 0 60 40px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  margin-left: 40px;
   width: 600px;
   height: 400px;
   display: flex;
@@ -100,14 +103,13 @@ const Logo = styled.div`
   display: flex;
   text-align: center;
   justify-content: center;
-  margin-bottom: 20px;
 `;
 
 const LogoText = styled.h3`
   font-weight: 1000;
   color: #3fc556;
-  font-size: 1.5rem;
-  padding-left: 20px;
+  font-size: 2rem;
+  padding-right: 20px;
 `;
 
 const Input = styled.input`
@@ -123,30 +125,35 @@ const Input = styled.input`
 
   &:focus {
     outline: none;
-    border: 3px solid #3fc556;
+    border: 3px solid #89db96;
   }
 `;
 
 const Img = styled.img`
+  margin-top: 5px;
   padding: 0px;
   width: 50px;
-  height: 70px;
+  height: 80px;
   object-fit: cover;
 `;
 
 const Button = styled.button`
   border-radius: 15px;
-  width: 70%;
+  width: 60%;
   height: 35px;
-  border: 1px solid #3fc556;
-  background-color: #3fc556;
+  border: 1px solid #9e6727;
+  background-color: #9e6727;
   font-weight: 1000;
   color: #fff;
   cursor: pointer;
   font-size: 1rem;
+  padding-bottom: 7px;
+  box-shadow: 0 3px 5px -1px #464441;
   &:hover {
-    background-color: #006e92;
-    color: #fff;
+    background-color: #6b481f;
+    color: white;
+    padding-bottom: 0px;
+    border-bottom: 4px solid #3b2811;
   }
 `;
 
@@ -155,7 +162,7 @@ const ETC = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-top: 25px;
-  font-size: 12px;
+  font-size: 14px;
   color: #838080;
   font-weight: 600;
 `;

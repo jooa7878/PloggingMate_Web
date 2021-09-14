@@ -13,6 +13,7 @@ function Footer() {
 }
 
 const CopyRight = styled.div`
+  z-index: 10;
   position: absolute;
   display: flex;
   color: #333;

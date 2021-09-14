@@ -1,7 +1,6 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 import "../scss/Navbar.scss";
 
@@ -71,6 +70,7 @@ const NormalNav = styled.nav`
 `;
 
 const NavbarItems = styled.div`
+  margin-bottom: 6.5px;
   display: flex;
   padding: 0 20px;
   align-items: center;
