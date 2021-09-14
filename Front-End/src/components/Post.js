@@ -42,6 +42,8 @@ const Post = (props) => {
   );
 };
 
+export default Post;
+
 Post.defaultProps = {
   post_id: 1,
   is_me: false,
@@ -110,4 +112,3 @@ const Top = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-export default Post;

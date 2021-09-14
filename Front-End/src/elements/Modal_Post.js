@@ -2,14 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-function Modal({
-  className,
-  onClose,
-  maskClosable,
-  visible,
-  children,
-  button,
-}) {
+function Modal_Post({ className, onClose, maskClosable, visible, children }) {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);
@@ -32,7 +25,6 @@ function Modal({
       >
         <ModalInner tabIndex="0" className="modal-inner">
           {children}
-          {button && <Button onClick={close}>확인</Button>}
         </ModalInner>
       </ModalWrapper>
     </>
@@ -65,34 +57,20 @@ const ModalOverlay = styled.div`
 `;
 
 const ModalInner = styled.div`
+  display: flex;
+  justify-content: space-between;
   box-sizing: border-box;
   position: relative;
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
   background-color: #fff;
   border-radius: 10px;
-  width: 480px;
-  max-width: 480px;
+  width: 80%;
+  max-width: 800px;
+  max-height: 480px;
   top: 50%;
+  padding: 10px;
   transform: translateY(-50%);
   margin: 0 auto;
-  padding: 40px 20px;
 `;
 
-const Button = styled.button`
-  margin-top: 20px;
-  border-radius: 15px;
-  width: 120px;
-  height: 35px;
-  border: 1px solid #3fc556;
-  background-color: #3fc556;
-  font-weight: 1000;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  &:hover {
-    background-color: #2c883b;
-    color: #fff;
-  }
-`;
-
-export default Modal;
+export default Modal_Post;
