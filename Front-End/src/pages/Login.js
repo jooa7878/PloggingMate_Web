@@ -10,15 +10,6 @@ const Login = (props) => {
   const [id, setId] = React.useState("");
   const [pwd, setPwd] = React.useState("");
 
-  const login = () => {
-    dispatch(userActions.login(id, pwd));
-  };
-
-  const handleOnchane = (e) => {
-    e.target.style.backgroundColor = "#e3f0e4";
-    if (e.target.value === "") e.target.style.backgroundColor = "white";
-  };
-
   return (
     <React.Fragment>
       <Card>
@@ -29,14 +20,18 @@ const Login = (props) => {
         <Form
           onSubmit={(e) => {
             e.preventDefault();
-            login();
+            dispatch(userActions.login(id, pwd));
           }}
         >
           <Input
             required
             type="email"
             placeholder="아이디를 입력해주세요."
-            onChange={handleOnchane}
+            onChange={(e) => {
+              e.target.style.backgroundColor = "#e3f0e4";
+              if (e.target.value === "") e.target.style.backgroundColor = "white";
+              setId(e.target.value);
+            }}
             onFocus={(e) => {
               e.target.placeholder = "";
             }}
@@ -48,7 +43,11 @@ const Login = (props) => {
             required
             type="password"
             placeholder="비밀번호를 입력해주세요."
-            onChange={handleOnchane}
+            onChange={(e) => {
+              e.target.style.backgroundColor = "#e3f0e4";
+              if (e.target.value === "") e.target.style.backgroundColor = "white";
+              setPwd(e.target.value);
+            }}
             onFocus={(e) => {
               e.target.placeholder = "";
             }}

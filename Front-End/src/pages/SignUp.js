@@ -2,8 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import Modal from "../elements/Modal";
 import PrivacyPolicy from "../elements/PrivacyPolicy";
+import { useDispatch } from "react-redux";
+import { actionCreators as userActions } from "../redux/modules/user";
 
 const SignUp = (props) => {
+  const dispatch = useDispatch();
+
   const [modalVisible, setModalVisible] = React.useState(false);
   const openModal = () => {
     setModalVisible(true);
@@ -12,10 +16,12 @@ const SignUp = (props) => {
     setModalVisible(false);
   };
 
-  const handleOnchane = (e) => {
-    e.target.style.backgroundColor = "#e8f7ea";
-    if (e.target.value === "") e.target.style.backgroundColor = "white";
-  };
+  const [id, setId] = React.useState("");
+  const [nickname, setNickname] = React.useState("");
+  const [pwd, setPwd] = React.useState("");
+  const [pwdCheck, setPwdCheck] = React.useState("");
+  const [isChecked, setIsChecked] = React.useState(false)
+  const address = "서울특별시 사당로 20나길 19 201호";
 
   return (
     <Card>
@@ -26,16 +32,16 @@ const SignUp = (props) => {
       <Form
         onSubmit={(event) => {
           event.preventDefault();
-          const password1 = event.target.password.value;
-          const password2 = event.target.passwordCheck.value;
-
-          if (password1 !== password2) {
-            alert("패스워드 확인이 틀렸습니다.");
+          if (!isChecked) {
+            window.alert("개인정보 수집 및 이용에 동의해주셔야합니다.")
+          }
+          else if (pwd.length < 8) {
+            window.alert("비밀번호는 8자이상이어야합니다.")
+          }
+          else if (pwd !== pwdCheck) {
+            window.alert("비밀번호 확인이 틀렸습니다.");
           } else {
-            console.dir(event.target.id.value);
-            console.dir(event.target.nickname.value);
-            console.dir(event.target.password.value);
-            console.dir(event.target.passwordCheck.value);
+            dispatch(userActions.signup(id, nickname, pwd, address));
           }
         }}
       >
@@ -49,7 +55,11 @@ const SignUp = (props) => {
           onBlur={(e) => {
             e.target.placeholder = "아이디를 입력해주세요.";
           }}
-          onChange={handleOnchane}
+          onChange={(e) => {
+            e.target.style.backgroundColor = "#e8f7ea";
+            if (e.target.value === "") e.target.style.backgroundColor = "white";
+            setId(e.target.value);
+          }}
         />
         <Input
           required
@@ -61,7 +71,11 @@ const SignUp = (props) => {
           onBlur={(e) => {
             e.target.placeholder = "사용하실 닉네임을 입력해주세요.";
           }}
-          onChange={handleOnchane}
+          onChange={(e) => {
+            e.target.style.backgroundColor = "#e8f7ea";
+            if (e.target.value === "") e.target.style.backgroundColor = "white";
+            setNickname(e.target.value);
+          }}
         />
         <Input
           required
@@ -74,7 +88,11 @@ const SignUp = (props) => {
           onBlur={(e) => {
             e.target.placeholder = "비밀번호를 입력해주세요.";
           }}
-          onChange={handleOnchane}
+          onChange={(e) => {
+            e.target.style.backgroundColor = "#e8f7ea";
+            if (e.target.value === "") e.target.style.backgroundColor = "white";
+            setPwd(e.target.value);
+          }}
         />
         <Input
           required
@@ -87,10 +105,17 @@ const SignUp = (props) => {
           onBlur={(e) => {
             e.target.placeholder = "비밀번호를 다시 입력해주세요.";
           }}
-          onChange={handleOnchane}
+          onChange={(e) => {
+            e.target.style.backgroundColor = "#e8f7ea";
+            if (e.target.value === "") e.target.style.backgroundColor = "white";
+            setPwdCheck(e.target.value);
+          }}
         />
         <div>
-          <input type="checkbox" value="banana" />
+          <input type="checkbox" checked={isChecked}
+            onChange={(e) => {
+              setIsChecked(!isChecked)
+            }} />
           <Policy>개인정보 수집 및 이용 동의</Policy>
           <Notice>[필수]</Notice>
           <PolicyContent onClick={openModal}>(내용 보기)</PolicyContent>
@@ -99,6 +124,7 @@ const SignUp = (props) => {
               visible={modalVisible}
               maskClosable={true}
               onClose={closeModal}
+              button
             >
               <PrivacyPolicy></PrivacyPolicy>
             </Modal>

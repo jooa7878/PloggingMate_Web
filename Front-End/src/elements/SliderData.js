@@ -5,6 +5,7 @@ import ploggingIMG_4 from "../img/slideImg_4.jpg";
 import ploggingIMG_5 from "../img/slideImg_5.jpg";
 import ploggingIMG_6 from "../img/slideImg_6.jpg";
 
+
 export const data = [
   {
     id: 0,

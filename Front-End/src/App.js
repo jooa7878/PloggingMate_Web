@@ -12,13 +12,14 @@ import Park from "./pages/Park";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PostDetail from "./pages/PostDetail";
+import CheckLogin from "./shared/CheckLogin";
 
-import Connect from "./shared/Connect";
 function App() {
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Connect></Connect>
+        <CheckLogin />
         <Navbar></Navbar>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />

@@ -2,6 +2,7 @@ import React from "react";
 import Post from "../components/Post";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Modal from "../elements/Modal";
 
 const 총게시물 = 26;
 const post = [
@@ -12,6 +13,13 @@ const post = [
 const PostList = (props) => {
   const [showNum, setShowNum] = React.useState(12);
   const [showNum_complete, setShowNum_complete] = React.useState(8);
+  const [modalVisible, setModalVisible] = React.useState(false);
+  const openModal = () => {
+    setModalVisible(true);
+  };
+  const closeModal = () => {
+    setModalVisible(false);
+  };
 
   React.useEffect(() => {
     // 포스트 가져오기
@@ -61,8 +69,8 @@ const PostList = (props) => {
       </SubTitle>
       <Posts>
         <PostsElm>
-          <Link to="/signup" className="Link_PostWrtie">
-            새로 모집하기
+          <Link to="/login" className="Link_PostWrtie">
+            게시물 작성
           </Link>
         </PostsElm>
         {rendering()}
@@ -77,6 +85,13 @@ const PostList = (props) => {
         {rendering_complete()}
         <Button onClick={clickMore_complete}>더보기</Button>
       </Posts>
+      {modalVisible && (
+        <Modal
+          visible={modalVisible}
+          maskClosable={true}
+          onClose={closeModal}
+        ></Modal>
+      )}
     </Body>
   );
 };

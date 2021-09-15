@@ -2,14 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-function Modal({
-  className,
-  onClose,
-  maskClosable,
-  visible,
-  children,
-  button,
-}) {
+function Modal({ className, onClose, maskClosable, visible }) {
   const onMaskClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose(e);
@@ -30,14 +23,15 @@ function Modal({
         tabIndex="-1"
         visible={visible}
       >
-        <ModalInner tabIndex="0" className="modal-inner">
-          {children}
-          {button && <Button onClick={close}>확인</Button>}
-        </ModalInner>
+        <ModalInner tabIndex="0" className="modal-inner"></ModalInner>
       </ModalWrapper>
     </>
   );
 }
+
+Modal.propTypes = {
+  visible: PropTypes.bool,
+};
 
 const ModalWrapper = styled.div`
   box-sizing: border-box;
@@ -76,23 +70,6 @@ const ModalInner = styled.div`
   transform: translateY(-50%);
   margin: 0 auto;
   padding: 40px 20px;
-`;
-
-const Button = styled.button`
-  margin-top: 20px;
-  border-radius: 15px;
-  width: 120px;
-  height: 35px;
-  border: 1px solid #3fc556;
-  background-color: #3fc556;
-  font-weight: 1000;
-  color: #fff;
-  font-size: 1rem;
-  cursor: pointer;
-  &:hover {
-    background-color: #2c883b;
-    color: #fff;
-  }
 `;
 
 export default Modal;
