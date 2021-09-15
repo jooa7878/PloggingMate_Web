@@ -2,9 +2,15 @@ import React from "react";
 import axios from "axios";
 
 const Connect = (props) => {
-  const getData = async () => {
-    const data = await axios.post("/users");
-  };
+  const data = axios.post("http://localhost:8080/app/sign-in", {
+    email: "vividswan@naver.com",
+    password: "test1234"
+  }).then(res => {
+    console.log(res);
+  }).catch(error => {
+    console.log(error.response.data)
+  })
+
 
   return <></>;
 };

@@ -2,6 +2,7 @@ import ploggingIMG_1 from "../img/slideImg_1.jpg";
 import ploggingIMG_2 from "../img/slideImg_2.jpg";
 import ploggingIMG_3 from "../img/slideImg_3.jpg";
 
+
 export const data = [
   {
     id: 0,

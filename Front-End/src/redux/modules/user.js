@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
   user: null,
-  is_login: null,
+  is_login: false,
   token: null,
 };
 
@@ -19,16 +19,36 @@ const setUser = createAction(SET_USER);
 
 // thunk middleware- 함수형 액션
 const login = (id, pwd) => {
-  return async function (dispatch, getState) {
-    const data = await axios.post("/sign-in", { username: id, password: pwd });
-    const { accessToken } = data.jwt;
+  return function (dispatch, getState) {
+    axios.post("http://localhost:8080/app/sign-in", {
+      email: id,
+      password: pwd
+    }).then(res => {
+      sessionStorage.setItem("JWT", res.data.result.jwt);
+      window.alert("로그인 성공");
+      dispatch(setUser());
+    }).catch(error => {
+      window.alert(error.response.data.message)
+    })
   };
 };
 
-const signup = (id, pwd, user_name) => {
+const signup = (id, nickname, pwd, address) => {
   return function (dispatch, getState) {
-    console.log("signup");
-    console.log(id, pwd, user_name);
+    axios.post("http://localhost:8080/app/sign-up", {
+      email: id,
+      nickname: nickname,
+      password: pwd,
+      address: address
+    }).then(res => {
+      window.alert("회원가입 성공");
+    }).catch(error => {
+      if (error.response.data.message === "닉네임 형식을 확인해주세요.") {
+        window.alert("닉네임 형식을 확인해주세요.\n닉네임은 3글자 이상, 20글자 이하이며, \n특수문자는 '_' 와 '-' 만 허용됩니다.")
+      } else {
+        window.alert(error.response.data.message)
+      }
+    })
   };
 };
 
@@ -46,12 +66,13 @@ const logout = () => {
 
 // 리듀서
 export default createReducer(initialState, {
-  [GET_USER]: (state, action) => {},
+  [GET_USER]: (state, action) => { },
   [SET_USER]: (state, action) => {
     state.is_login = true;
   },
   [LOG_OUT]: (state, action) => {
     state.is_login = false;
+    sessionStorage.removeItem("JWT");
   },
 });
 
@@ -61,6 +82,7 @@ const actionCreators = {
   signup,
   loginCheck,
   logout,
+  setUser,
 };
 
 export { actionCreators };

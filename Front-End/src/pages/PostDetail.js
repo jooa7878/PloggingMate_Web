@@ -44,9 +44,15 @@ const Img = styled.img`
   min-width: 420px;
   height: 25rem;
   margin-right: 10px;
+  @media screen and (max-width: 900px) {
+    max-width: 300px;
+    min-width: 300px;
+    max-height: 400px;
+    min-height: 400px;
+  }
   @media screen and (max-width: 768px) {
-    max-width: 200px;
-    min-width: 200px;
+    max-width: 250px;
+    min-width: 250px;
     max-height: 400px;
     min-height: 400px;
   }
