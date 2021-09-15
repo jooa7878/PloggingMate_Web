@@ -6,11 +6,7 @@ import "../scss/Navbar.scss";
 
 function Navbar({ history }) {
   const [isLogin, setIsLogin] = useState(false);
-  const [locationKeys, setLocationKeys] = useState([]);
 
-  useEffect(() => {
-    console.log(history);
-  }, [history]);
   const onClick = (e) => {
     document.querySelectorAll(".tab-item").forEach((el) => {
       if (el.classList.contains("active")) {
