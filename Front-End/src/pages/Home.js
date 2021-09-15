@@ -9,6 +9,8 @@ import FindPark from "../components/FindPark";
 
 import "../scss/Home.scss";
 
+import "../scss/Home.scss";
+
 const Home = (props) => {
   return (
     <Container>
@@ -23,6 +25,7 @@ const Home = (props) => {
 };
 
 const Container = styled.div`
+  height: 1000px;
   left: 0;
   right: 0;
   margin: 0 auto;
