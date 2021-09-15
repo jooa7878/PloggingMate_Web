@@ -70,7 +70,7 @@ const PostList = (props) => {
       <Posts>
         <PostsElm>
           <Link to="/login" className="Link_PostWrtie">
-            새로 모집하기
+            게시물 작성
           </Link>
         </PostsElm>
         {rendering()}
