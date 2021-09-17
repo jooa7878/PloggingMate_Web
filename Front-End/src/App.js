@@ -12,14 +12,14 @@ import Park from "./pages/Park";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PostDetail from "./pages/PostDetail";
-import CheckLogin from "./shared/CheckLogin";
+import PostWrite from "./pages/PostWrite";
+import Connect from "./shared/Connect";
+
 
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
-        <CheckLogin />
         <Navbar></Navbar>
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
@@ -28,6 +28,7 @@ function App() {
         <Route path="/park" exact component={Park} />
         <Route path="/postdetail/:id" component={PostDetail} />
         <Route path="/redux" exact component={ReduxTest} />
+        <Route path="/postwrite" exact component={PostWrite} />
       </BrowserRouter>
       <Footer></Footer>
     </div>
