@@ -21,6 +21,8 @@ public class Park extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    private String name;
+
     private String thumbnail;
 
     private String address;

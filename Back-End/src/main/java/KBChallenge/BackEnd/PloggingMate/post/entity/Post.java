@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
@@ -37,5 +39,8 @@ public class Post extends BaseTimeEntity {
     @ManyToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "parkId")
     private Park park;
+
+    @OneToMany(mappedBy = "post")
+    private List<AccountPostRelation> applicants = new ArrayList<>();
 
 }

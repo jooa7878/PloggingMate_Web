@@ -1,6 +1,8 @@
 package KBChallenge.BackEnd.PloggingMate.microdust;
 
+import KBChallenge.BackEnd.PloggingMate.configure.response.DataResponse;
 import KBChallenge.BackEnd.PloggingMate.configure.response.ResponseService;
+import KBChallenge.BackEnd.PloggingMate.microdust.dto.MicrodustDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +20,7 @@ public class MicrodustController {
     private final MicrodustService microdustService;
 
     @GetMapping(value = "/microdust")
-    public Object checkMicrodustInfos(@RequestParam String tmX, @RequestParam String tmY) throws Exception {
+    public DataResponse<MicrodustDto> checkMicrodustInfos(@RequestParam String tmX, @RequestParam String tmY) throws Exception {
         return responseService.getDataResponse(microdustService.getMicrodustInfo(tmX, tmY));
     }
 }
