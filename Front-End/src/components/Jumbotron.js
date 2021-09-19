@@ -30,7 +30,7 @@ function Jumbotron() {
               <>
                 <SwiperSlide key={index}>
                   <Link to="/postlist">
-                    <img src={item.img} alt="Slider Image" />
+                    <img src={item.img} alt={index + 1} />
                   </Link>
                 </SwiperSlide>
               </>
