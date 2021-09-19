@@ -1,7 +1,8 @@
 import "./scss/App.scss";
-import React from "react";
+import React, { useEffect } from "react";
 
 import { BrowserRouter, Route } from "react-router-dom";
+import axios from "axios";
 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -15,6 +16,25 @@ import PostDetail from "./pages/PostDetail";
 import CheckLogin from "./shared/CheckLogin";
 
 function App() {
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+      axios
+        .get(
+          `https://dapi.kakao.com/v2/local/geo/coord2address.json?x=${position.coords.longitude}&y=${position.coords.latitude}&input_coord=WGS84`,
+          {
+            headers: {
+              Authorization: "KakaoAK c110186294e282609044a72dd378ffbf",
+            },
+          }
+        )
+        .then((res) => {
+          const location = res.data.documents[0];
+          console.log(location);
+        });
+    });
+  }, []);
 
   return (
     <div className="App">

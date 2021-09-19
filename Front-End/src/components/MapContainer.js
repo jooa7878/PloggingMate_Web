@@ -128,13 +128,10 @@ const MapContainer = ({ searchPlace }) => {
     function displayCenterInfo(result, status) {
       if (status === kakao.maps.services.Status.OK) {
         let infoDiv = document.getElementById("centerAddr");
-        for (let i = 0; i < result.length; i++) {
-          // 행정동의 region_type 값은 'H' 이므로
-          if (result[i].region_type === "H") {
-            if (
-              result[i].address_name.trim() !== "" ||
-              result[i].address_name !== null
-            ) {
+        if (infoDiv) {
+          for (let i = 0; i < result.length; i++) {
+            // 행정동의 region_type 값은 'H' 이므로
+            if (result[i].region_type === "H") {
               infoDiv.innerHTML = result[i].address_name;
               break;
             }

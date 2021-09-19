@@ -12,8 +12,6 @@ import "swiper/swiper-bundle.css";
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 function Jumbotron() {
-  console.log(data);
-
   return (
     <React.Fragment>
       <Container>
@@ -24,13 +22,13 @@ function Jumbotron() {
           navigation
           centeredSlides={true}
           loop={true}
-          onInit={(swiper) => console.log(swiper)}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
+          key={0}
         >
           {data.map((item, index) => {
             return (
               <>
-                <SwiperSlide>
+                <SwiperSlide key={index}>
                   <Link to="/postlist">
                     <img src={item.img} alt="Slider Image" />
                   </Link>
