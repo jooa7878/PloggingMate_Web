@@ -3,6 +3,7 @@ package KBChallenge.BackEnd.PloggingMate.park.entity;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomException;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomExceptionStatus;
 import KBChallenge.BackEnd.PloggingMate.park.entity.dto.CreateParkReq;
+import KBChallenge.BackEnd.PloggingMate.park.entity.dto.CreateParkRes;
 import KBChallenge.BackEnd.PloggingMate.util.FirebaseFileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class ParkService {
     private final FirebaseFileService fileService;
 
     @Transactional
-    public Long createPark(CreateParkReq req, MultipartFile file) {
+    public CreateParkRes createPark(CreateParkReq req, MultipartFile file) {
 
         if (parkRepository.findByName(req.getName()).isPresent()) {
             throw new CustomException(CustomExceptionStatus.DUPLICATED_PARK);
@@ -30,6 +31,13 @@ public class ParkService {
 
         Park save = parkRepository.save(park);
 
-        return save.getParkId();
+        CreateParkRes res = CreateParkRes.builder()
+                .parkId(save.getParkId())
+                .name(save.getName())
+                .address(save.getAddress())
+                .thumbnailUri(save.getThumbnailUri())
+                .build();
+
+        return res;
     }
 }
