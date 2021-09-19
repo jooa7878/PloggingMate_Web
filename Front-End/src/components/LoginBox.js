@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../scss/LoginBox.scss";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
 function LoginBox() {
-  let [login, setLogin] = useState(false);
-
+  const login = useSelector(state => state.user.is_login);
+  const user = useSelector(state => state.user.user);
   return (
     <React.Fragment>
       <div className="userbox-container">
         {login ? (
           <div className="userbox">
             <p>
-              <strong>userName님</strong> <br />
+              <strong>{user.nickname}님</strong> <br />
               안녕하세요!😀
             </p>
             <div className="btn-container">

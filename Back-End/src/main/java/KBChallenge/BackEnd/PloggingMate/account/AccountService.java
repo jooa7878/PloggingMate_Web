@@ -48,6 +48,7 @@ public class AccountService {
 
         SignInRes res = SignInRes.builder()
                 .accountId(account.getAccountId())
+                .nickname(account.getNickname())
                 .jwt(jwtTokenProvider.createToken(account.getEmail(), account.getRole()))
                 .build();
 
