@@ -12,8 +12,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Query(
             "SELECT p FROM Post p " +
                     "INNER JOIN p.park park " +
-                    "LEFT JOIN p.applicants relation " +
-                    "INNER JOIN FETCH relation.account a " +
+                    "LEFT JOIN FETCH p.applicants r " +
+                    "JOIN FETCH r.account a " +
                     "WHERE p.status = 'VALID' " +
                     "ORDER BY p.reservedAt DESC"
     )
