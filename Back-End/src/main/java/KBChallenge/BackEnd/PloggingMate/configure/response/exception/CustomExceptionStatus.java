@@ -68,6 +68,10 @@ public enum CustomExceptionStatus {
     FAILED_TO_RECEPTION(false,3016,"유효한 수신 번호가 아닙니다."),
     DUPLICATED_ID(false, 3017, "중복된 아이디입니다."),
 
+    // Location,
+    LOCATION_NOT_VALID(false, 3030, "유효하지 않은 주소입니다."),
+
+
 
 
     /**
