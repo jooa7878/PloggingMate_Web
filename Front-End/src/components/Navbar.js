@@ -21,6 +21,11 @@ function Navbar({ history }) {
     if (e.target.className !== "logo") e.target.classList.add("active");
   };
 
+  const logout = () => {
+    setIsLogin(false);
+    //history push home ?
+  };
+
   return (
     <>
       <NormalNav>
@@ -39,9 +44,11 @@ function Navbar({ history }) {
               Park
             </Link>
             {isLogin ? (
+
               <Link to="/" className="tab-item" onClick={() => {
                 dispatch(userActions.logOut())
               }}>
+
                 Logout
               </Link>
             ) : (
