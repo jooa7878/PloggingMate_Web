@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping(value = "/app")
-@Slf4j
 public class MicrodustController {
 
     private final ResponseService responseService;
