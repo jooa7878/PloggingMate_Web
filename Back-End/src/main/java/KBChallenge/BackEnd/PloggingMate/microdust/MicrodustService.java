@@ -48,7 +48,7 @@ public class MicrodustService implements GetApiService {
         return convertToDto(responseBody);
     }
 
-    public String getNearbyMeasuringStation(String tmX, String tmY) throws Exception{
+    private String getNearbyMeasuringStation(String tmX, String tmY) throws Exception{
         URI callUri = getNearbyMeasuringStationOpenUri(tmX, tmY);
         String responseBody = getApi(callUri);
         JSONArray jsonArray = extractJsonArray(responseBody);
@@ -63,7 +63,7 @@ public class MicrodustService implements GetApiService {
         return responseBody;
     }
 
-    public URI getNearbyMeasuringStationOpenUri(String tmX, String tmY) {
+    private URI getNearbyMeasuringStationOpenUri(String tmX, String tmY) {
         String URI = serviceUri + "MsrstnInfoInqireSvc/getNearbyMsrstnList";
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(URI)
                 .queryParam("serviceKey",serviceKey)
@@ -75,7 +75,7 @@ public class MicrodustService implements GetApiService {
         return builder.toUri();
     }
 
-    public URI getMicrodustInfoOpenUri(String stationName) {
+    private URI getMicrodustInfoOpenUri(String stationName) {
         String URI = serviceUri + "ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty";
 
         UriComponents builder = UriComponentsBuilder.fromHttpUrl(URI)
@@ -90,7 +90,7 @@ public class MicrodustService implements GetApiService {
         return builder.toUri();
     }
 
-    public MicrodustDto convertToDto(String responseBody) throws IOException{
+    private MicrodustDto convertToDto(String responseBody) throws IOException{
         JSONArray array = extractJsonArray(responseBody);
 
         MicrodustDto microdustDto = null;
@@ -103,7 +103,7 @@ public class MicrodustService implements GetApiService {
         return microdustDto;
     }
 
-    public JSONArray extractJsonArray(String responseBody) {
+    private JSONArray extractJsonArray(String responseBody) {
         JSONObject jsonObject = new JSONObject(responseBody); // getbody
         JSONObject getObject = jsonObject.getJSONObject("response")
                 .getJSONObject("body");
@@ -111,7 +111,7 @@ public class MicrodustService implements GetApiService {
         return array;
     }
 
-    public void validateMicrodustDto(MicrodustDto microdustDto) throws IOException{
+    private void validateMicrodustDto(MicrodustDto microdustDto) throws IOException{
         if (Objects.isNull(microdustDto)) {
             throw new IOException("Faile to convert to MicrodustDTO");
         }

@@ -41,16 +41,4 @@ class MicrodustServiceTest {
         Assertions.assertThat(response.getDataTime()).isEqualTo(expectDateTime);
     }
 
-
-    @Test
-    public void test() throws Exception {
-        // given
-        String stationName = "교문동";
-
-        URI callUri = microdustService.getMicrodustInfoOpenUri(stationName);
-        String responseBody = microdustService.getApi(callUri);
-        System.out.println(responseBody);
-        microdustService.convertToDto(responseBody);
-
-    }
 }

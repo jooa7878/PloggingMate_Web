@@ -29,7 +29,7 @@ public enum CustomExceptionStatus {
     ACCOUNT_NOT_FOUND(false, 2011, "사용자를 찾을 수 없습니다."),
     ACCOUNT_NOT_VALID(false, 2012, "유효한 사용자가 아닙니다."),
 
-    // [POST] /users
+    // [POST] /requestDto
     POST_USERS_EMPTY_EMAIL(false, 2020, "이메일을 입력해주세요."),
     POST_USERS_INVALID_EMAIL(false, 2021, "이메일 형식을 확인해주세요."),
     POST_USERS_EXISTS_EMAIL(false,2022,"중복된 이메일입니다."),
@@ -43,9 +43,14 @@ public enum CustomExceptionStatus {
     POST_USERS_EXISTS_ID(false,2030,"중복된 아이디입니다."),
     POST_USERS_EMPTY_ADDRESS(false, 2031, "주소를 입력해주세요."),
     POST_USERS_INVALID_ADDRESS(false, 2032, "주소 형식을 확인해주세요."),
+    POST_USERS_EMPTY_NAME(false,2033,"이름을 입력해주세요."),
 
     // Role
     ACCOUNT_ACCESS_DENIED(false, 2050, "권한이 없습니다."),
+
+    // Park
+    PARK_NOT_FOUND(false, 2051, "공원을 찾을 수 없습니다."),
+    DUPLICATED_PARK(false, 2052, "해당 공원이 이미 존재합니다."),
 
     /**
      * 3000 : Response 오류
