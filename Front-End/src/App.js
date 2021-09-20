@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import PostDetail from "./pages/PostDetail";
 import PostWrite from "./pages/PostWrite";
 import Connect from "./shared/Connect";
+import UserInfo from "./pages/UserInfo";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
+        <Route path="/userinfo" exact component={UserInfo} />
         <Route path="/postlist" exact component={PostList} />
         <Route path="/park" exact component={Park} />
         <Route path="/postdetail/:id" component={PostDetail} />

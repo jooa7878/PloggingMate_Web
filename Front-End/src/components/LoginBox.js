@@ -17,7 +17,7 @@ function LoginBox() {
               안녕하세요!😀
             </p>
             <div className="btn-container">
-              <Link to="/" className="link btn to-mypage">
+              <Link to="/userinfo" className="link btn to-mypage">
                 마이 페이지
               </Link>
               <Link to="/postlist" className="link btn to-challenge">
