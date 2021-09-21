@@ -4,8 +4,11 @@ import KBChallenge.BackEnd.PloggingMate.account.entity.Account;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomException;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomExceptionStatus;
 import KBChallenge.BackEnd.PloggingMate.configure.security.authentication.CustomUserDetails;
+import KBChallenge.BackEnd.PloggingMate.park.entity.Park;
+import KBChallenge.BackEnd.PloggingMate.park.entity.ParkRepository;
 import KBChallenge.BackEnd.PloggingMate.post.dto.PostListRes;
 import KBChallenge.BackEnd.PloggingMate.post.entity.AccountPostRelation;
+import KBChallenge.BackEnd.PloggingMate.post.dto.CreatePostReq;
 import KBChallenge.BackEnd.PloggingMate.post.entity.Post;
 import KBChallenge.BackEnd.PloggingMate.post.repository.AccountPostRelationRepository;
 import KBChallenge.BackEnd.PloggingMate.post.repository.PostRepository;
@@ -21,7 +24,7 @@ import java.util.Optional;
 
 import static KBChallenge.BackEnd.PloggingMate.configure.entity.Status.*;
 
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor
 @Service
 public class PostService {
@@ -30,7 +33,9 @@ public class PostService {
     private final NaverGeocode naverGeocode;
     private final NaverDirection5 naverDirection5;
     private final AccountPostRelationRepository accountPostRelationRepository;
+    private final ParkRepository parkRepository;
 
+    @Transactional(readOnly = true)
     public List<PostListRes> getPostList(CustomUserDetails customUserDetails) {
         List<PostListRes> list = postRepository.getNoAuthPostList();
         if(customUserDetails ==null)return list;
@@ -44,7 +49,6 @@ public class PostService {
         return list;
     }
 
-    @Transactional
     public void chooseOrCancelApplications(Long postId, CustomUserDetails customUserDetails) {
         Post post = postRepository.findByStatusAndPostId(VALID, postId)
                 .orElseThrow(() -> new CustomException(CustomExceptionStatus.POST_NOT_FOUND));
@@ -66,5 +70,14 @@ public class PostService {
         if (post.getApplyCount() > post.getTotalApplyCount())
             throw new CustomException(CustomExceptionStatus.POST_USERS_INVALID_PASSWORD);
 
+    }
+
+    public Long createPost(CreatePostReq createPostReq, CustomUserDetails customUserDetails) {
+        Account account = customUserDetails.getAccount();
+        Park park = parkRepository.findByParkIdAndStatus(createPostReq.getParkId(), VALID)
+                .orElseThrow(() -> new CustomException(CustomExceptionStatus.PARK_NOT_FOUND));
+        Post post = new Post(createPostReq, account, park);
+        Post save = postRepository.save(post);
+        return save.getPostId();
     }
 }

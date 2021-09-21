@@ -4,7 +4,6 @@ import KBChallenge.BackEnd.PloggingMate.account.entity.Account;
 import KBChallenge.BackEnd.PloggingMate.configure.entity.BaseTimeEntity;
 import KBChallenge.BackEnd.PloggingMate.configure.entity.Status;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

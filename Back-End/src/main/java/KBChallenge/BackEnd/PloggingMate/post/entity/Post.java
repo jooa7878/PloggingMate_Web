@@ -1,8 +1,10 @@
 package KBChallenge.BackEnd.PloggingMate.post.entity;
 
+import KBChallenge.BackEnd.PloggingMate.account.entity.Account;
 import KBChallenge.BackEnd.PloggingMate.configure.entity.BaseTimeEntity;
 import KBChallenge.BackEnd.PloggingMate.configure.entity.Status;
 import KBChallenge.BackEnd.PloggingMate.park.entity.Park;
+import KBChallenge.BackEnd.PloggingMate.post.dto.CreatePostReq;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +14,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static KBChallenge.BackEnd.PloggingMate.configure.entity.Status.*;
 import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
@@ -49,5 +52,15 @@ public class Post extends BaseTimeEntity {
 
     @OneToMany(mappedBy = "post")
     private List<AccountPostRelation> applicants = new ArrayList<>();
+
+    public Post(CreatePostReq createPostReq, Account account, Park park){
+        this.status = VALID;
+        this.contents = createPostReq.getContents();
+        this.reservedAt = createPostReq.getReservedAt();
+        this.address = park.getAddress();
+        this.applyCount = 0;
+        this.totalApplyCount = createPostReq.getTotalApplyCount();
+        this.park = park;
+    }
 
 }
