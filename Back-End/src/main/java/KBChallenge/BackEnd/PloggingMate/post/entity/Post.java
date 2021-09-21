@@ -36,6 +36,13 @@ public class Post extends BaseTimeEntity {
 
     private Integer applyCount;
 
+    private Integer totalApplyCount;
+
+    public void changeApplyCount(Boolean isLike) {
+        if (isLike) this.applyCount++;
+        else this.applyCount--;
+    }
+
     @ManyToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "parkId")
     private Park park;

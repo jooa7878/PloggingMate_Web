@@ -1,6 +1,7 @@
 package KBChallenge.BackEnd.PloggingMate.post.dto;
 
 import KBChallenge.BackEnd.PloggingMate.post.entity.Post;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,7 @@ public class PostListRes implements Comparable<PostListRes>{
 
     private List<ApplicantRes> accounts = new ArrayList<>();
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Double dist;
 
     @Override

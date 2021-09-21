@@ -1,11 +1,13 @@
-package KBChallenge.BackEnd.PloggingMate.post;
+package KBChallenge.BackEnd.PloggingMate.post.repository;
 
+import KBChallenge.BackEnd.PloggingMate.configure.entity.Status;
 import KBChallenge.BackEnd.PloggingMate.post.dto.PostListRes;
 import KBChallenge.BackEnd.PloggingMate.post.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 
@@ -18,5 +20,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
                     "ORDER BY p.reservedAt DESC"
     )
     List<PostListRes> getNoAuthPostList();
+
+    Optional<Post> findByStatusAndPostId(Status status, Long postId);
 
 }

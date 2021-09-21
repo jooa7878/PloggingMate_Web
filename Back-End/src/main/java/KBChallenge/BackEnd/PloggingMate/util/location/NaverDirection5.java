@@ -6,7 +6,6 @@ import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.text.DecimalFormat;
 
 @Component
 public class NaverDirection5 {
@@ -32,7 +31,7 @@ public class NaverDirection5 {
         JSONObject route = new JSONObject(responseEntity.getBody()).getJSONObject("route");
         Object traoptimalObj
                 = new JSONObject(route.getJSONArray("traoptimal").get(0).toString()).getJSONObject("summary").get("distance");
-        return Double.parseDouble(traoptimalObj.toString());
+        return Double.parseDouble(traoptimalObj.toString())/1000.0;
     }
 
 }
