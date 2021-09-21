@@ -24,8 +24,8 @@ public class PostController {
     private final PostService postService;
 
     @GetMapping(value = "/posts")
-    public DataResponse<List<PostListRes>> getPostList(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
-        List<PostListRes> postList = postService.getPostList(customUserDetails);
+    public DataResponse<List<List<PostListRes>>> getPostList(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
+        List<List<PostListRes>> postList = postService.getPostList(customUserDetails);
         return responseService.getDataResponse(postList);
     }
 

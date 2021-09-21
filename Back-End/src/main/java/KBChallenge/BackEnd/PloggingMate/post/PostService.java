@@ -18,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -36,17 +37,23 @@ public class PostService {
     private final ParkRepository parkRepository;
 
     @Transactional(readOnly = true)
-    public List<PostListRes> getPostList(CustomUserDetails customUserDetails) {
-        List<PostListRes> list = postRepository.getNoAuthPostList();
-        if(customUserDetails ==null)return list;
-        Account account = customUserDetails.getAccount();
-        String accountCoordinate = naverGeocode.getCoordinate(account.getAddress());
-        for (PostListRes postListRes : list) {
-            String parkCoordinate = naverGeocode.getCoordinate(postListRes.getAddress());
-            postListRes.setDist(naverDirection5.getDistance(accountCoordinate, parkCoordinate));
+    public List<List<PostListRes>> getPostList(CustomUserDetails customUserDetails) {
+        List<List<PostListRes>> ans = new ArrayList<>();
+        List<PostListRes> list = postRepository.getNoAuthPostListAvailable();
+        if(customUserDetails ==null) ans.add(list);
+        else{
+            Account account = customUserDetails.getAccount();
+            String accountCoordinate = naverGeocode.getCoordinate(account.getAddress());
+            for (PostListRes postListRes : list) {
+                String parkCoordinate = naverGeocode.getCoordinate(postListRes.getAddress());
+                postListRes.setDist(naverDirection5.getDistance(accountCoordinate, parkCoordinate));
+            }
+            Collections.sort(list);
+            ans.add(list);
         }
-        Collections.sort(list);
-        return list;
+        List<PostListRes> notAvailableList = postRepository.getNoAuthPostListNotAvailable();
+        ans.add(notAvailableList);
+        return ans;
     }
 
     public void chooseOrCancelApplications(Long postId, CustomUserDetails customUserDetails) {
@@ -68,7 +75,7 @@ public class PostService {
             post.changeApplyCount(true);
         }
         if (post.getApplyCount() > post.getTotalApplyCount())
-            throw new CustomException(CustomExceptionStatus.POST_USERS_INVALID_PASSWORD);
+            throw new CustomException(CustomExceptionStatus.POST_OVER_APPLICANT);
 
     }
 

@@ -16,10 +16,20 @@ public interface PostRepository extends JpaRepository<Post, Long> {
                     "INNER JOIN p.park park " +
                     "LEFT JOIN FETCH p.applicants r " +
                     "LEFT JOIN FETCH r.account a " +
-                    "WHERE p.status = 'VALID' " +
+                    "WHERE (p.status = 'VALID' AND p.reservedAt > CURRENT_DATE() )"+
                     "ORDER BY p.reservedAt DESC"
     )
-    List<PostListRes> getNoAuthPostList();
+    List<PostListRes> getNoAuthPostListAvailable();
+
+    @Query(
+            "SELECT p FROM Post p " +
+                    "INNER JOIN p.park park " +
+                    "LEFT JOIN FETCH p.applicants r " +
+                    "LEFT JOIN FETCH r.account a " +
+                    "WHERE (p.status = 'VALID' AND p.reservedAt <= CURRENT_DATE() )"+
+                    "ORDER BY p.reservedAt DESC"
+    )
+    List<PostListRes> getNoAuthPostListNotAvailable();
 
     Optional<Post> findByStatusAndPostId(Status status, Long postId);
 
