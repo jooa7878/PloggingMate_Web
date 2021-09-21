@@ -18,7 +18,7 @@ public class NaverDirection5 {
     private String X_NCP_APIGW_API_KEY;
 
 
-    public String getDistance(String x, String y) {
+    public Double getDistance(String x, String y) {
         RestTemplate rest = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.add("X-NCP-APIGW-API-KEY-ID", X_NCP_APIGW_API_KEY_ID);
@@ -32,9 +32,7 @@ public class NaverDirection5 {
         JSONObject route = new JSONObject(responseEntity.getBody()).getJSONObject("route");
         Object traoptimalObj
                 = new JSONObject(route.getJSONArray("traoptimal").get(0).toString()).getJSONObject("summary").get("distance");
-        Double distance = Double.parseDouble(traoptimalObj.toString())/1000.0;
-        String format = new DecimalFormat("#.##").format(distance);
-        return format;
+        return Double.parseDouble(traoptimalObj.toString());
     }
 
 }

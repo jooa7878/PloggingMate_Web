@@ -13,7 +13,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
             "SELECT p FROM Post p " +
                     "INNER JOIN p.park park " +
                     "LEFT JOIN FETCH p.applicants r " +
-                    "JOIN FETCH r.account a " +
+                    "LEFT JOIN FETCH r.account a " +
                     "WHERE p.status = 'VALID' " +
                     "ORDER BY p.reservedAt DESC"
     )

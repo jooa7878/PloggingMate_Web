@@ -6,6 +6,7 @@ import KBChallenge.BackEnd.PloggingMate.configure.security.authentication.Custom
 import KBChallenge.BackEnd.PloggingMate.post.dto.PostListRes;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,7 @@ public class PostController {
     private final ResponseService responseService;
     private final PostService postService;
 
+@GetMapping(value = "/posts")
     public DataResponse<List<PostListRes>> getPostList(@AuthenticationPrincipal CustomUserDetails customUserDetails) {
         List<PostListRes> postList = postService.getPostList(customUserDetails);
         return responseService.getDataResponse(postList);
