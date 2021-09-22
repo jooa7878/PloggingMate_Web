@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static KBChallenge.BackEnd.PloggingMate.configure.entity.Status.*;
+import static javax.persistence.CascadeType.*;
 import static javax.persistence.FetchType.*;
 
 @Getter
@@ -40,16 +41,12 @@ public class Post extends BaseTimeEntity {
 
     private Integer totalApplyCount;
 
-    public void changeApplyCount(Boolean isLike, AccountPostRelation accountPostRelation) {
-        if (isLike) {
-            this.applyCount++;
-        }
-        else {
-            this.applyCount--;
-        }
+    public void changeApplyCount(Boolean isLike) {
+        if (isLike) this.applyCount++;
+        else this.applyCount--;
     }
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "parkId")
     private Park park;
 

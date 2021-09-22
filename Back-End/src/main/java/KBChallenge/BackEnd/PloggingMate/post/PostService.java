@@ -65,20 +65,24 @@ public class PostService {
         if (optional.isPresent()){
             AccountPostRelation accountPostRelation = optional.get();
             accountPostRelation.toggleIsLike();
-            post.changeApplyCount(accountPostRelation.getIsLike(), accountPostRelation);
+            post.changeApplyCount(accountPostRelation.getIsLike());
         }
+
         else{
             AccountPostRelation accountPostRelation = new AccountPostRelation(account, post);
-            accountPostRelationRepository.save(accountPostRelation);
+            AccountPostRelation save = accountPostRelationRepository.save(accountPostRelation);
+            post.getApplicants().add(save);
+            post.changeApplyCount(true);
         }
         if (post.getApplyCount() > post.getTotalApplyCount())
             throw new CustomException(CustomExceptionStatus.POST_OVER_APPLICANT);
+
     }
 
     public Long createPost(CreatePostReq createPostReq, CustomUserDetails customUserDetails) {
         Account account = customUserDetails.getAccount();
         Park park = parkRepository.findByParkIdAndStatus(createPostReq.getParkId(), VALID)
-                .orElseThrow(() -> new CustomException(CustomExceptionStatus.POST_OVER_APPLICANT));
+                .orElseThrow(() -> new CustomException(CustomExceptionStatus.PARK_NOT_FOUND));
         Post post = new Post(createPostReq, account, park);
         Post save = postRepository.save(post);
         return save.getPostId();
