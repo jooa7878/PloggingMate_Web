@@ -13,7 +13,7 @@ const Login = ({ history }) => {
 
   if (is_login) history.goBack();
   return (
-    <React.Fragment>
+    <Body>
       {!is_login && (
         <Card>
           <Logo>
@@ -74,14 +74,22 @@ const Login = ({ history }) => {
           </Form>
         </Card>
       )}
-    </React.Fragment>
+    </Body>
   );
 };
 
 export default withRouter(Login);
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+  margin-bottom: 60px;
+  max-width: 1200px;
+`;
 
 const Form = styled.form`
-  font-family: "Nanum Gothic", sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
