@@ -23,22 +23,20 @@ function Jumbotron() {
           centeredSlides={true}
           loop={true}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
-          key={0}
         >
           {data.map((item, index) => {
             return (
-              <>
+              <React.Fragment key={Date.now()}>
                 <SwiperSlide key={index}>
                   <Link to="/postlist">
                     <img src={item.img} alt={index + 1} />
                   </Link>
                 </SwiperSlide>
-              </>
+              </React.Fragment>
             );
           })}
         </Swiper>
       </Container>
-      <p>슬라이드를 누르시면 챌린지로 이동합니다.</p>
     </React.Fragment>
   );
 }
