@@ -4,9 +4,14 @@ import { useSelector } from "react-redux";
 
 import StarIcon from "@material-ui/icons/Star";
 
-function UserInfo() {
+function UserInfo({ history }) {
   const user = useSelector((state) => state.user.user);
-  console.log(user);
+  const is_login = useSelector((state) => state.user.is_login);
+  if (!is_login) {
+    window.alert("로그인 후 이용가능합니다.");
+    history.replace("/login");
+    return <></>;
+  }
   return (
     <React.Fragment>
       <div className="userinfo-container">
