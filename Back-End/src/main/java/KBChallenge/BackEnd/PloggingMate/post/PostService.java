@@ -81,10 +81,17 @@ public class PostService {
 
     public Long createPost(CreatePostReq createPostReq, CustomUserDetails customUserDetails) {
         Account account = customUserDetails.getAccount();
-        Park park = parkRepository.findByParkIdAndStatus(createPostReq.getParkId(), VALID)
-                .orElseThrow(() -> new CustomException(CustomExceptionStatus.PARK_NOT_FOUND));
-        Post post = new Post(createPostReq, account, park);
-        Post save = postRepository.save(post);
-        return save.getPostId();
+        if (createPostReq.getParkId() != null) {
+            Park park = parkRepository.findByParkIdAndStatus(createPostReq.getParkId(), VALID)
+                    .orElseThrow(() -> new CustomException(CustomExceptionStatus.PARK_NOT_FOUND));
+            Post post = new Post(createPostReq, account, park);
+            Post save = postRepository.save(post);
+            return save.getPostId();
+        }
+        else {
+            Post post = new Post(createPostReq, account);
+            Post save = postRepository.save(post);
+            return save.getPostId();
+        }
     }
 }
