@@ -22,7 +22,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Navbar></Navbar>
-        <Route path="/" exact render={() => <Home />} />
+        <Route path="/" exact component={Home} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUp} />
         <Route path="/userinfo" exact component={UserInfo} />
