@@ -89,6 +89,7 @@ public class PostService {
             return save.getPostId();
         }
         else {
+            naverGeocode.getCoordinate(createPostReq.getAddress());
             Post post = new Post(createPostReq, account);
             Post save = postRepository.save(post);
             return save.getPostId();
