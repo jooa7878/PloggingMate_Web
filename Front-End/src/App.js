@@ -16,6 +16,7 @@ import PostDetail from "./pages/PostDetail";
 import PostWrite from "./pages/PostWrite";
 import Connect from "./shared/Connect";
 import UserInfo from "./pages/UserInfo";
+import MyPlogging from "./pages/MyPlogging";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
         <Route path="/postdetail/:id" component={PostDetail} />
         <Route path="/redux" exact component={ReduxTest} />
         <Route path="/postwrite" exact component={PostWrite} />
+        <Route path="/myplogging" exact component={MyPlogging} />
       </BrowserRouter>
       <Footer></Footer>
     </div>
