@@ -1,9 +1,9 @@
-package KBChallenge.BackEnd.PloggingMate.park.entity;
+package KBChallenge.BackEnd.PloggingMate.park;
 
 import KBChallenge.BackEnd.PloggingMate.configure.response.DataResponse;
 import KBChallenge.BackEnd.PloggingMate.configure.response.ResponseService;
-import KBChallenge.BackEnd.PloggingMate.park.entity.dto.CreateParkReq;
-import KBChallenge.BackEnd.PloggingMate.park.entity.dto.CreateParkRes;
+import KBChallenge.BackEnd.PloggingMate.park.dto.CreateParkRes;
+import KBChallenge.BackEnd.PloggingMate.park.dto.CreateParkReq;
 import KBChallenge.BackEnd.PloggingMate.util.ValidationExceptionProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.Errors;

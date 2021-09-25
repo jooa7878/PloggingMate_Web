@@ -38,7 +38,7 @@ public class FirebaseFileService implements FileService {
             Credentials credentials = GoogleCredentials.fromStream(serviceAccount.getInputStream());
             storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         } catch (Exception e) {
-//            throw new CustomException(CustomExceptionStatus.SERVER_ERROR);
+            throw new CustomException(CustomExceptionStatus.SERVER_ERROR);
         }
     }
 
