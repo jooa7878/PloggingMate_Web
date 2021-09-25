@@ -4,7 +4,7 @@ import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomExcep
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomExceptionStatus;
 import KBChallenge.BackEnd.PloggingMate.park.entity.dto.CreateParkReq;
 import KBChallenge.BackEnd.PloggingMate.park.entity.dto.CreateParkRes;
-import KBChallenge.BackEnd.PloggingMate.util.FirebaseFileService;
+import KBChallenge.BackEnd.PloggingMate.util.uploader.FirebaseFileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

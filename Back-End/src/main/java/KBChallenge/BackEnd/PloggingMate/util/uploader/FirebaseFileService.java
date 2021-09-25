@@ -1,8 +1,7 @@
-package KBChallenge.BackEnd.PloggingMate.util;
+package KBChallenge.BackEnd.PloggingMate.util.uploader;
 
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomException;
 import KBChallenge.BackEnd.PloggingMate.configure.response.exception.CustomExceptionStatus;
-import KBChallenge.BackEnd.PloggingMate.util.FileService;
 import com.google.auth.Credentials;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.*;
@@ -76,12 +75,22 @@ public class FirebaseFileService implements FileService {
     }
 
     private String uploadFile(File file, String fileName) throws IOException {
+        BlobInfo blobInfo = getBlobInfo(fileName);
+        storage.create(blobInfo, Files.readAllBytes(file.toPath()));
+        return fileName;
+    }
+
+    public boolean deleteFile(String fileName) {
+        BlobInfo blobInfo = getBlobInfo(fileName);
+        storage.delete(blobInfo.getBlobId());
+        return true;
+    }
+
+    private BlobInfo getBlobInfo(String fileName) {
         BlobId blobId = BlobId.of(bucket, fileName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
                 .setContentType("media")
                 .build();
-
-        storage.create(blobInfo, Files.readAllBytes(file.toPath()));
-        return fileName;
+        return blobInfo;
     }
 }
