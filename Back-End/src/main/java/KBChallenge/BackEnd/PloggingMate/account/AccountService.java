@@ -100,4 +100,11 @@ public class AccountService {
         List<PostListRes> list = postRepository.getPostsByAccount(account);
         return list;
     }
+
+    @Transactional
+    public void patchAuthProfileImage(MultipartFile file, CustomUserDetails customUserDetails) {
+        Account account = accountRepository.findByEmailAndStatus(customUserDetails.getAccount().getEmail(), VALID)
+                .orElseThrow(() -> new CustomException(CustomExceptionStatus.ACCOUNT_NOT_FOUND));
+        account.changeProfileImage(fileService.upload(file));
+    }
 }
