@@ -45,6 +45,8 @@ public class Post extends BaseTimeEntity {
 
     private String parkName;
 
+    private String thumbnail;
+
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "accountId")
     private Account account;
@@ -69,6 +71,7 @@ public class Post extends BaseTimeEntity {
         this.totalApplyCount = createPostReq.getTotalApplyCount();
         this.information = createPostReq.getInformation();
         this.account = account;
+        this.thumbnail = createPostReq.getThumbnail();
         this.park = park;
         this.parkName = park.getName();
         this.address = park.getAddress();
@@ -81,6 +84,7 @@ public class Post extends BaseTimeEntity {
         this.applyCount = 0;
         this.totalApplyCount = createPostReq.getTotalApplyCount();
         this.information = createPostReq.getInformation();
+        this.thumbnail = createPostReq.getThumbnail();
         this.account = account;
         this.park = null;
         this.parkName = createPostReq.getName();
