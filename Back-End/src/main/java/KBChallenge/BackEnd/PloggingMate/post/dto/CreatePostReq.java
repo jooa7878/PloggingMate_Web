@@ -19,6 +19,9 @@ public class CreatePostReq {
 
     private LocalDateTime reservedAt;
 
+    @NotBlank
+    private String information;
+
     private Long parkId;
 
     @NotNull

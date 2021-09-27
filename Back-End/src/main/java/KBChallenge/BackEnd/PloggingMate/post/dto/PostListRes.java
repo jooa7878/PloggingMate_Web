@@ -26,6 +26,8 @@ public class PostListRes implements Comparable<PostListRes>{
 
     private LocalDateTime reservedAt;
 
+    private String information;
+
     private String address;
 
     private Integer applyCount;
@@ -54,6 +56,7 @@ public class PostListRes implements Comparable<PostListRes>{
         this.reservedAt = post.getReservedAt();
         this.address = post.getAddress();
         this.applyCount = post.getApplyCount();
+        this.information = post.getInformation();
         this.parkId = post.getPark().getParkId();
         this.parkName = post.getPark().getName();
         this.accounts = post.getApplicants().stream().filter(AccountPostRelation::getIsLike).map(ApplicantRes::new).collect(Collectors.toList());

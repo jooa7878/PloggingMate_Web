@@ -31,6 +31,8 @@ public class Post extends BaseTimeEntity {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    private String information;
+
     private String contents;
 
     private LocalDateTime reservedAt;
@@ -65,6 +67,7 @@ public class Post extends BaseTimeEntity {
         this.reservedAt = createPostReq.getReservedAt();
         this.applyCount = 0;
         this.totalApplyCount = createPostReq.getTotalApplyCount();
+        this.information = createPostReq.getInformation();
         this.account = account;
         this.park = park;
         this.parkName = park.getName();
@@ -77,6 +80,7 @@ public class Post extends BaseTimeEntity {
         this.reservedAt = createPostReq.getReservedAt();
         this.applyCount = 0;
         this.totalApplyCount = createPostReq.getTotalApplyCount();
+        this.information = createPostReq.getInformation();
         this.account = account;
         this.park = null;
         this.parkName = createPostReq.getName();
