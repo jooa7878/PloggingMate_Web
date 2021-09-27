@@ -34,6 +34,10 @@ public class PostListRes implements Comparable<PostListRes>{
 
     private String parkName;
 
+    private Long creatorAccountId;
+
+    private String creatorNickname;
+
     private List<ApplicantRes> accounts = new ArrayList<>();
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -52,7 +56,9 @@ public class PostListRes implements Comparable<PostListRes>{
         this.applyCount = post.getApplyCount();
         this.parkId = post.getPark().getParkId();
         this.parkName = post.getPark().getName();
-        accounts = post.getApplicants().stream().filter(AccountPostRelation::getIsLike).map(ApplicantRes::new).collect(Collectors.toList());
+        this.accounts = post.getApplicants().stream().filter(AccountPostRelation::getIsLike).map(ApplicantRes::new).collect(Collectors.toList());
+        this.creatorAccountId = post.getAccount().getAccountId();
+        this.creatorNickname = post.getAccount().getNickname();
     }
 
 }
