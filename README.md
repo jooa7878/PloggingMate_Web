@@ -46,7 +46,7 @@ $ cd Back-End
 $ ./gradlew clean build
 ```
 
-### back-end
+### front-end
 
 ```sh
 $ cd Front-End
