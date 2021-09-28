@@ -35,6 +35,7 @@
   - HTML5
   - SASS
   - JavaScript(ES6)
+  - Node.js
   - ReactJS
 
 ## Usage
