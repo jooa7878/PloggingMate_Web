@@ -18,6 +18,7 @@
   <img src="https://img.shields.io/badge/-JPA-red"/>&nbsp
   <img src="https://img.shields.io/badge/-H2DB-yellow"/>&nbsp
   <img src="https://img.shields.io/badge/-JWT-blue"/>&nbsp
+  <img src="https://img.shields.io/badge/-firebase-blueviolet"/>&nbsp
   <img src="https://img.shields.io/badge/-HTML-orange"/>&nbsp
   <img src="https://img.shields.io/badge/-ReactJS-red"/>&nbsp
   <img src="https://img.shields.io/badge/-SASS-black"/>&nbsp
@@ -30,6 +31,7 @@
   - java11
   - gradle
   - spring-boot 2.5.3
+  - firebase
 
 - front-end
   - HTML5
@@ -69,8 +71,8 @@ $ npm run start
 
 👤 **alexjime**
 
-* Website: https://vividswan.github.io
-* Github: [@alexjime](https://codeinlife.tistory.com)
+* Website: https://codeinlife.tistory.com
+* Github: [@alexjime](https://github.com/alexjime)
 
 👤 **vividswan**
 
