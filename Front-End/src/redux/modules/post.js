@@ -50,14 +50,16 @@ const applyPost = (postId) => {
           },
         }
       )
-      .then((res) => {})
+      .then((res) => {
+        dispatch(getPost(res.data.result));
+      })
       .catch((error) => {
         console.dir(error);
       });
   };
 };
 
-const addPost = (title, address, location, time, content, history) => {
+const addPost = (title, address, location, time, content, file, history) => {
   return function (dispatch, getState) {
     axios
       .post(
@@ -76,7 +78,6 @@ const addPost = (title, address, location, time, content, history) => {
         }
       )
       .then(async (res) => {
-        console.log(res);
         history.goBack();
       })
       .catch((error) => {
@@ -87,12 +88,14 @@ const addPost = (title, address, location, time, content, history) => {
 // 리듀서
 export default createReducer(initialState, {
   [SET_POST]: (state, action) => {
-    state.list = action.payload[0];
-    state.listExpired = action.payload[1];
+    if (state.list !== action.payload[0]) state.list = action.payload[0];
+    if (state.listExpired !== action.payload[1])
+      state.listExpired = action.payload[1];
     state.is_loading = false;
   },
   [LOADING]: (state, action) => {
     state.is_loading = action.payload;
+    console.log(state.is_loading);
   },
 });
 

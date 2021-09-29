@@ -63,7 +63,7 @@ function UserInfo({ history }) {
                 <button
                   type="submit"
                   className="btn btn-change"
-                  onClick={onClick}
+                  onClick={openModal}
                 >
                   {/* <label htmlFor="file"> 프로필 사진 변경</label> */}
                   <input
@@ -83,7 +83,10 @@ function UserInfo({ history }) {
             </div>
           </div>
           <div className="my-point">
-            나의 플로깅 지수는 <StarIcon></StarIcon> user.count
+            나의 플로깅 지수는 <StarIcon></StarIcon> {user.participationCount}
+            <Link to="/postlist" className="link btn btn-postlist">
+              플로깅 참여하러 가기
+            </Link>
           </div>
           <div className="info">
             <span>Name </span>
