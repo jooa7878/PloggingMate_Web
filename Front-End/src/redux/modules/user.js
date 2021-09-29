@@ -1,5 +1,6 @@
 import { createAction, createReducer } from "@reduxjs/toolkit";
 import axios from "axios";
+import logo from "../../img/logo.png";
 
 const initialState = {
   is_login: false,
@@ -9,6 +10,7 @@ const initialState = {
     email: "",
     address: "",
     nickname: "",
+    participationCount: 0,
   },
 };
 
@@ -45,7 +47,9 @@ const login = (id, pwd, history) => {
             },
           })
           .then((res) => {
+            console.log(res);
             dispatch(setUser(res.data.result));
+            console.log(res.data.result);
           })
           .catch((error) => {
             console.log(error);
@@ -94,6 +98,7 @@ export default createReducer(initialState, {
     state.user.email = userData.email;
     state.user.address = userData.address;
     state.user.nickname = userData.nickname;
+    state.user.profileImage = userData.profileImage;
   },
   [LOG_OUT]: (state, action) => {
     state.is_login = false;
