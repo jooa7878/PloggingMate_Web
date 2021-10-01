@@ -14,7 +14,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query(
             "SELECT p FROM Post p " +
-                    "INNER JOIN p.park park " +
+                    "LEFT JOIN FETCH p.park park " +
                     "LEFT JOIN FETCH p.applicants r " +
                     "LEFT JOIN FETCH r.account a " +
                     "WHERE (p.status = 'VALID' AND p.reservedAt > CURRENT_DATE() )"+
@@ -24,7 +24,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
 
     @Query(
             "SELECT p FROM Post p " +
-                    "INNER JOIN p.park park " +
+                    "LEFT JOIN FETCH p.park park " +
                     "LEFT JOIN FETCH p.applicants r " +
                     "LEFT JOIN FETCH r.account a " +
                     "WHERE (p.status = 'VALID' AND p.reservedAt <= CURRENT_DATE() )"+
