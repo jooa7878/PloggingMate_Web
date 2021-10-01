@@ -36,7 +36,7 @@ public interface PostRepository extends JpaRepository<Post, Long> {
             "SELECT p FROM Post p " +
                     "JOIN  FETCH p.applicants ap " +
                     "JOIN FETCH  ap.account a " +
-                    "WHERE ( p.status = 'VALID' AND ap.isLike = true AND p.reservedAt > CURRENT_DATE() ) "
+                    "WHERE ( p.status = 'VALID' AND ap.isLike = true ) "
     )
     List<PostListRes> getPostsByAccount(Account account);
 
